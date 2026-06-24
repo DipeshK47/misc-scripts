@@ -6,3 +6,10 @@ state/new_this_run.json
 
 # added via GitHub web UI (PAT lacks workflow scope)
 .github/workflows/update.yml
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
