@@ -120,6 +120,8 @@ header {
 .ref:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 .ref.spin svg { animation: spin .7s var(--ease-in-out) infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+.ref.accent { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+.ref.accent:hover { background: var(--color-accent-press); border-color: var(--color-accent-press); }
 
 /* ----------------------------------------------------------------- toolbar */
 .toolbar {

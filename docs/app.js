@@ -270,6 +270,52 @@ async function refresh() {
   setTimeout(() => btn.classList.remove("spin"), 700);
 }
 
+function setStatus(msg) { $("scrape-status").textContent = msg || ""; }
+
+// Trigger a brand-new scrape via the Cloudflare Worker, then poll meta.json
+// until the freshly-committed data shows up (~1–2 min: scrape + Pages rebuild).
+async function scrapeNow() {
+  const cfg = window.JOBRADAR || {};
+  const btn = $("scrape-now");
+  if (!cfg.workerUrl) {
+    setStatus("Set up the Worker first (see /worker) — then add its URL to config.js.");
+    return;
+  }
+  if (btn.dataset.busy) return;
+  btn.dataset.busy = "1"; btn.classList.add("spin");
+  const before = META.generated_ts || 0;
+  setStatus("Triggering a fresh scrape…");
+  const done = () => { btn.dataset.busy = ""; btn.classList.remove("spin"); };
+  try {
+    const r = await fetch(cfg.workerUrl, { method: "POST" });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.ok === false) {
+      setStatus(j.throttled ? "Just scraped — try again in a few seconds." : "Couldn't trigger scrape.");
+      done(); return;
+    }
+  } catch (e) { setStatus("Worker unreachable — check config.js / deploy."); done(); return; }
+
+  setStatus("Scraping… new jobs in ~1–2 min");
+  let tries = 0;
+  const iv = setInterval(async () => {
+    tries++;
+    try {
+      const m = await fetch("meta.json?_=" + Date.now()).then((r) => r.json());
+      if ((m.generated_ts || 0) > before) {
+        clearInterval(iv);
+        await loadData(); setupSources(); render();
+        setStatus("Updated just now ✓"); done();
+        setTimeout(() => setStatus(""), 5000);
+        return;
+      }
+    } catch (e) { /* keep polling */ }
+    if (tries >= 30) {                       // ~5 min
+      clearInterval(iv);
+      setStatus("Still scraping — hit Refresh shortly."); done();
+    }
+  }, 10000);
+}
+
 async function boot() {
   try {
     await loadData();
@@ -288,6 +334,9 @@ async function boot() {
   ["posted", "sort", "loc", "role", "level", "spons"].forEach((id) => $(id).addEventListener("change", render));
   ["t-new", "t-remote", "t-hide-applied", "t-show-dismissed"].forEach((id) => $(id).addEventListener("change", render));
   $("refresh").addEventListener("click", refresh);
+  const sn = $("scrape-now");
+  if ((window.JOBRADAR || {}).workerUrl) sn.style.display = "";
+  sn.addEventListener("click", scrapeNow);
 }
 
 boot();

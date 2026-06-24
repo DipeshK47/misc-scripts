@@ -21,9 +21,14 @@
       <div class="stat new"><b id="s-new">—</b><span>new</span></div>
       <div class="stat"><b id="s-updated">—</b><span>updated</span></div>
     </div>
+    <span id="scrape-status" class="lbl"></span>
     <button id="refresh" class="ref" title="Pull the latest auto-scraped jobs">
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2v3h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>Refresh</span>
+    </button>
+    <button id="scrape-now" class="ref accent" title="Trigger a brand-new scrape now" style="display:none">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8.5 1.5L3 9h4l-.5 5.5L13 7H9l-.5-5.5z" fill="currentColor"/></svg>
+      <span>Scrape now</span>
     </button>
   </div>
 </header>
@@ -100,6 +105,7 @@
   <p style="margin-top:14px">JobRadar pulls from curated GitHub trackers + company ATS boards (Greenhouse / Lever / Ashby) and refreshes automatically. Your “applied” and “dismissed” marks live only in this browser.</p>
 </footer>
 
+<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

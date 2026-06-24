@@ -1,0 +1,6 @@
+name = "jobradar-scrape"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Secret (do NOT put it here — set it with: wrangler secret put GH_TOKEN):
+#   GH_TOKEN = a GitHub fine-grained token with "Actions: Read and write" on DipeshK47/jobradar
