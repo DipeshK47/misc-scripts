@@ -69,7 +69,7 @@ def collect(repos_cfg, companies_cfg, md_cfg, wd_cfg, mode):
         tasks.append((f"workday:{wd['name']}", lambda w=wd: workday.fetch(w, mode)))
 
     jobs, health = [], []
-    with ThreadPoolExecutor(max_workers=20) as ex:
+    with ThreadPoolExecutor(max_workers=32) as ex:
         futs = {ex.submit(fn): label for label, fn in tasks}
         for fut in as_completed(futs):
             label = futs[fut]
