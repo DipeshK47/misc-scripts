@@ -1,0 +1,54 @@
+# Company ATS boards. Only EARLY-CAREER (intern / new-grad / junior) titles are
+# kept from these. Unknown/dead tokens are skipped gracefully (logged, not fatal).
+# All tokens below were verified live (board returns JSON). A board showing 0 here
+# just means it had no early-career roles open at scrape time — keep it, it'll fill.
+#
+#   greenhouse token  ->  boards-api.greenhouse.io/v1/boards/<token>/jobs
+#   lever     company ->  api.lever.co/v0/postings/<company>
+#   ashby     org     ->  api.ashbyhq.com/posting-api/job-board/<org>
+#
+# To add: find the slug in the careers URL (boards.greenhouse.io/<token>,
+# jobs.lever.co/<company>, jobs.ashbyhq.com/<org>) — usually the lowercased name.
+
+greenhouse:
+  - anthropic
+  - databricks
+  - stripe
+  - scaleai
+  - figma
+  - airbnb
+  - pinterest
+  - robinhood
+  - coinbase
+  - instacart
+  - samsara
+  - cloudflare
+  - affirm
+  - reddit
+  - lyft
+  - asana
+  - airtable
+  - gitlab
+  - dropbox
+  - discord
+  - twitch
+
+lever:
+  - palantir
+  - spotify
+  - matchgroup
+
+ashby:
+  - openai
+  - perplexity
+  - elevenlabs
+  - cohere
+  - sierra
+  - notion
+  - ramp
+  - cursor
+  - writer
+  - suno
+  - modal
+  - linear
+  - runway

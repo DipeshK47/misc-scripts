@@ -1,0 +1,26 @@
+# Curated GitHub repos that publish a machine-readable listings.json.
+# default_role just tags rows; the title still refines internship vs new_grad.
+# All endpoints below were verified live. To add one: open the repo, confirm it
+# has .github/scripts/listings.json on its default branch, and paste the raw URL.
+repos:
+  # ---- New-grad full-time ----
+  - name: vanshb03/New-Grad-2027
+    url: https://raw.githubusercontent.com/vanshb03/New-Grad-2027/dev/.github/scripts/listings.json
+    default_role: new_grad
+  - name: SimplifyJobs/New-Grad-Positions
+    url: https://raw.githubusercontent.com/SimplifyJobs/New-Grad-Positions/dev/.github/scripts/listings.json
+    default_role: new_grad
+  - name: cvrve/New-Grad-2025
+    url: https://raw.githubusercontent.com/cvrve/New-Grad-2025/main/.github/scripts/listings.json
+    default_role: new_grad
+
+  # ---- Internships (Summer 2026 / 2027 + off-cycle) ----
+  - name: vanshb03/Summer2027-Internships
+    url: https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json
+    default_role: internship
+  - name: SimplifyJobs/Summer2026-Internships
+    url: https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/.github/scripts/listings.json
+    default_role: internship
+  - name: both-sides/summer2026-internships
+    url: https://raw.githubusercontent.com/both-sides/summer2026-internships/dev/.github/scripts/listings.json
+    default_role: internship

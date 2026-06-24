@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JobRadar — fresh new-grad &amp; intern jobs</title>
+<meta name="description" content="Continuously-updated US new-grad, internship & research jobs in AI/ML, data science, software & analytics — sorted by time posted.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <div class="brand">
+      <h1>Job<span class="dot">Radar</span></h1>
+      <span class="tag">fresh roles, sorted by time posted</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="s-total">—</b><span>showing</span></div>
+      <div class="stat new"><b id="s-new">—</b><span>new</span></div>
+      <div class="stat"><b id="s-updated">—</b><span>updated</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="tb-inner">
+    <div class="tb-row">
+      <input type="search" id="q" placeholder="Search company, title, location…  (e.g. machine learning, OpenAI, New York)">
+      <select id="posted">
+        <option value="1">Posted &lt; 24h</option>
+        <option value="3">Posted &lt; 3 days</option>
+        <option value="7">Posted &lt; 7 days</option>
+        <option value="14">Posted &lt; 14 days</option>
+        <option value="9999">Any time</option>
+      </select>
+      <select id="sort">
+        <option value="posted">Newest posted</option>
+        <option value="found">Newest discovered</option>
+        <option value="company">Company A–Z</option>
+      </select>
+    </div>
+    <div class="tb-row">
+      <div class="chips" id="cat-chips"></div>
+      <span class="spacer"></span>
+      <select id="role">
+        <option value="">All roles</option>
+        <option value="internship">Internships</option>
+        <option value="new_grad">New grad</option>
+      </select>
+      <select id="spons">
+        <option value="">Any sponsorship</option>
+        <option value="offers">Offers sponsorship</option>
+        <option value="no_sponsorship">No sponsorship</option>
+        <option value="citizen_required">Citizen required</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </div>
+    <div class="tb-row">
+      <label class="toggle"><input type="checkbox" id="t-new"> New only</label>
+      <label class="toggle"><input type="checkbox" id="t-remote"> Remote only</label>
+      <label class="toggle"><input type="checkbox" id="t-applied" checked> Hide applied/dismissed</label>
+      <span class="spacer"></span>
+      <span class="lbl" id="applied-count"></span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="count-line" id="count-line"></div>
+  <div id="list"></div>
+  <div class="empty" id="empty" style="display:none">No jobs match these filters.</div>
+</main>
+
+<footer>
+  <div id="src-line"></div>
+  <div class="src-health" id="src-health"></div>
+  <p style="margin-top:14px">JobRadar pulls from curated GitHub trackers + company ATS boards (Greenhouse / Lever / Ashby) and refreshes automatically. Your "applied" and "dismissed" marks are stored only in this browser.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
