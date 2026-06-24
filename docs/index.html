@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>JobRadar — fresh new-grad &amp; intern jobs</title>
 <meta name="description" content="Continuously-updated US new-grad, internship & research jobs in AI/ML, data science, software & analytics — sorted by time posted.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
@@ -26,7 +27,10 @@
 <div class="toolbar">
   <div class="tb-inner">
     <div class="tb-row">
-      <input type="search" id="q" placeholder="Search company, title, location…  (e.g. machine learning, OpenAI, New York)">
+      <label class="search">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input type="search" id="q" placeholder="Search company, title, location…  e.g. machine learning, OpenAI, New York">
+      </label>
       <select id="posted">
         <option value="1">Posted &lt; 24h</option>
         <option value="3">Posted &lt; 3 days</option>
@@ -76,7 +80,7 @@
 <footer>
   <div id="src-line"></div>
   <div class="src-health" id="src-health"></div>
-  <p style="margin-top:14px">JobRadar pulls from curated GitHub trackers + company ATS boards (Greenhouse / Lever / Ashby) and refreshes automatically. Your "applied" and "dismissed" marks are stored only in this browser.</p>
+  <p style="margin-top:14px">JobRadar pulls from curated GitHub trackers + company ATS boards (Greenhouse / Lever / Ashby) and refreshes automatically. Your “applied” and “dismissed” marks live only in this browser.</p>
 </footer>
 
 <script src="app.js"></script>
