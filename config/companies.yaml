@@ -1,54 +1,175 @@
-# Company ATS boards. Only EARLY-CAREER (intern / new-grad / junior) titles are
-# kept from these. Unknown/dead tokens are skipped gracefully (logged, not fatal).
-# All tokens below were verified live (board returns JSON). A board showing 0 here
-# just means it had no early-career roles open at scrape time — keep it, it'll fill.
+# Company ATS boards — every token below was live-verified (board returns JSON).
+# Only EARLY-CAREER (intern / new-grad / junior) titles are kept. Dead tokens are
+# skipped gracefully. A 0 next to a name just means no early-career roles open now.
 #
 #   greenhouse token  ->  boards-api.greenhouse.io/v1/boards/<token>/jobs
 #   lever     company ->  api.lever.co/v0/postings/<company>
 #   ashby     org     ->  api.ashbyhq.com/posting-api/job-board/<org>
-#
-# To add: find the slug in the careers URL (boards.greenhouse.io/<token>,
-# jobs.lever.co/<company>, jobs.ashbyhq.com/<org>) — usually the lowercased name.
 
 greenhouse:
-  - anthropic
-  - databricks
-  - stripe
-  - scaleai
-  - figma
+  # big tech / consumer
   - airbnb
-  - pinterest
-  - robinhood
-  - coinbase
+  - stripe
+  - doordashusa
   - instacart
-  - samsara
-  - cloudflare
-  - affirm
-  - reddit
   - lyft
-  - asana
-  - airtable
-  - gitlab
-  - dropbox
+  - reddit
+  - pinterest
+  - roblox
   - discord
   - twitch
+  - dropbox
+  - squarespace
+  - flexport
+  # AI labs / ML infra
+  - anthropic
+  - xai
+  - scaleai
+  - togetherai
+  - stabilityai
+  - assemblyai
+  - databricks
+  # data / dev-tools / infra
+  - datadog
+  - mongodb
+  - elastic
+  - clickhouse
+  - cockroachlabs
+  - grafanalabs
+  - fivetran
+  - starburst
+  - gitlab
+  - twilio
+  - okta
+  - amplitude
+  - mixpanel
+  - vercel
+  - netlify
+  - samsara
+  - figma
+  - airtable
+  - asana
+  # fintech
+  - coinbase
+  - brex
+  - affirm
+  - chime
+  - gusto
+  - sofi
+  - betterment
+  - marqeta
+  - block
+  - robinhood
+  # quant / trading
+  - janestreet
+  - point72
+  - imc
+  - jumptrading
+  - squarepointcapital
+  - aqr
+  - akunacapital
+  - oldmissioncapital
+  - pdtpartners
+  - optiver
 
 lever:
   - palantir
   - spotify
+  - mistral
+  - zoox
+  - waabi
+  - weride
+  - field-ai
+  - cyngn
+  - isee
+  - teleo
+  - humble-robotics
+  - whoop
+  - wealthfront
+  - finch
+  - wintermute-trading
+  - belvederetrading
+  - certik
+  - crypto
+  - veeva
+  - hive
+  - xsolla
+  - dreamgames
   - matchgroup
+  - hevodata
+  - secureframe
+  - gauntlet
+  - artera
+  - insiderone
+  - workwave
+  - bhg-inc
+  - neighbor
+  - toku
+  - morningbrew
+  - intropic
+  - verisinsights
+  - playonsports
+  - solopulseco
+  - raya
 
 ashby:
+  # AI / ML / LLM
   - openai
   - perplexity
-  - elevenlabs
   - cohere
+  - elevenlabs
   - sierra
-  - notion
-  - ramp
+  - harvey
+  - decagon
+  - cognition
+  - character
+  - langchain
+  - replit
   - cursor
-  - writer
-  - suno
-  - modal
-  - linear
   - runway
+  - suno
+  - writer
+  - modal
+  - anyscale
+  - baseten
+  - mercor
+  - claylabs
+  - hebbia-ai
+  - gigaml
+  - distyl
+  - basis-ai
+  - raylu-ai
+  - gptzero
+  - julius
+  - continue
+  - unify
+  - automat
+  - mercura
+  - netic
+  - crosby
+  - junior
+  - promise
+  - swoop
+  - brainco
+  # fintech / infra / SaaS
+  - ramp
+  - notion
+  - linear
+  - vanta
+  - sentry
+  - render
+  - neon
+  - workos
+  - zapier
+  - g2
+  - pylon-labs
+  - oso
+  - sentilink
+  - sardine
+  - middesk
+  - moderntreasury
+  - abound
+  - wealthsimple
+  - withpulley
+  - valon
+  - kubera-health

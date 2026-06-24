@@ -21,6 +21,10 @@
       <div class="stat new"><b id="s-new">—</b><span>new</span></div>
       <div class="stat"><b id="s-updated">—</b><span>updated</span></div>
     </div>
+    <button id="refresh" class="ref" title="Pull the latest auto-scraped jobs">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2v3h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Refresh</span>
+    </button>
   </div>
 </header>
 
@@ -31,6 +35,14 @@
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         <input type="search" id="q" placeholder="Search company, title, location…  e.g. machine learning, OpenAI, New York">
       </label>
+      <select id="loc" title="Filter by location">
+        <option value="">All locations</option>
+        <option value="metro">📍 NY / NJ metro</option>
+        <option value="nyc">New York City</option>
+        <option value="nystate">New York State</option>
+        <option value="nj">New Jersey</option>
+        <option value="remote">Remote</option>
+      </select>
       <select id="posted">
         <option value="1">Posted &lt; 24h</option>
         <option value="3">Posted &lt; 3 days</option>

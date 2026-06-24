@@ -4,12 +4,14 @@ A self-updating, single-page board of **fresh US new-grad / internship / researc
 AI/ML, data science, data analytics, software & web dev — **sorted by time posted** so you can
 be among the first applicants.
 
-It pulls from:
-- **Curated GitHub trackers** (vanshb03, SimplifyJobs, cvrve, both-sides — the bot-maintained
-  `listings.json` lists, which already aggregate LinkedIn/company postings with timestamps).
-- **Company ATS boards** (Greenhouse / Lever / Ashby) — public JSON APIs from big tech *and*
-  startups (OpenAI, Anthropic, Databricks, Stripe, Palantir, Perplexity, …), filtered to
-  early-career roles only.
+It pulls from ~180 live sources:
+- **Curated GitHub trackers** — `listings.json` lists (vanshb03, SimplifyJobs, cvrve, both-sides)
+  **and** markdown-table lists (jobright-ai, speedyapply, sndsh404, zapplyjobs), which already
+  aggregate LinkedIn/company postings with timestamps.
+- **Company ATS boards** — public JSON APIs: **Greenhouse / Lever / Ashby** (~155 companies, big
+  tech + AI labs + startups + quant: OpenAI, Anthropic, Databricks, Stripe, Palantir, Perplexity,
+  Jane Street, …) and **Workday** (NVIDIA, Salesforce, Adobe, Visa, Mastercard, Capital One, …),
+  all filtered to early-career roles only.
 
 Every job is tagged with **category**, **role type** (intern / new-grad), and a **visa
 sponsorship badge**. New roles since the last refresh get a **NEW** pill and (optionally) a

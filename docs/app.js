@@ -53,6 +53,7 @@ function loadPrefs() {
   if (p.q != null) $("q").value = p.q;
   $("posted").value = p.posted || String(META.default_view_days || 7);
   $("sort").value = p.sort || "posted";
+  $("loc").value = p.loc || "";
   $("role").value = p.role || "";
   $("spons").value = p.spons || "";
   $("t-new").checked = !!p.tnew;
@@ -63,7 +64,7 @@ function loadPrefs() {
 }
 function savePrefs() {
   localStorage.setItem(LS.prefs, JSON.stringify({
-    q: $("q").value, posted: $("posted").value, sort: $("sort").value,
+    q: $("q").value, posted: $("posted").value, sort: $("sort").value, loc: $("loc").value,
     role: $("role").value, spons: $("spons").value,
     tnew: $("t-new").checked, tremote: $("t-remote").checked,
     thideApplied: $("t-hide-applied").checked, tshowDismissed: $("t-show-dismissed").checked,
@@ -72,10 +73,8 @@ function savePrefs() {
 }
 
 function buildChips() {
-  const counts = {};
-  JOBS.forEach((j) => (j.categories || []).forEach((c) => (counts[c] = (counts[c] || 0) + 1)));
   $("cat-chips").innerHTML = CATEGORIES
-    .map(([k, label]) => `<span class="chip${activeCats.has(k) ? " on" : ""}" data-cat="${k}">${label}<span class="c">${counts[k] || 0}</span></span>`)
+    .map(([k, label]) => `<span class="chip${activeCats.has(k) ? " on" : ""}" data-cat="${k}">${label}<span class="c">0</span></span>`)
     .join("");
   $("cat-chips").querySelectorAll(".chip").forEach((el) =>
     el.addEventListener("click", () => {
@@ -85,13 +84,37 @@ function buildChips() {
       render();
     }));
 }
+// chip counts reflect the CURRENT filters (minus the category itself), so they
+// always tell you how many you'd actually get.
+function updateChipCounts(base) {
+  const counts = {};
+  base.forEach((j) => (j.categories || []).forEach((c) => (counts[c] = (counts[c] || 0) + 1)));
+  $("cat-chips").querySelectorAll(".chip").forEach((el) => {
+    el.querySelector(".c").textContent = counts[el.dataset.cat] || 0;
+  });
+}
 
-function matches(j) {
+function inRegion(j, region) {
+  const L = (j.location || "").toLowerCase();
+  if (region === "remote") return !!j.remote;
+  const nj = /\bnj\b|new jersey|jersey city|newark|hoboken|princeton|edison|trenton|parsippany|secaucus|paramus|morristown|piscataway/.test(L);
+  const nyc = /\b(new york|nyc|manhattan|brooklyn|queens|bronx|staten island|long island city)\b/.test(L);
+  const nystate = /\bny\b|new york/.test(L) || nyc;
+  if (region === "nyc") return nyc;
+  if (region === "nj") return nj;
+  if (region === "nystate") return nystate;
+  if (region === "metro") return nyc || nj || nystate;
+  return true;
+}
+
+// every filter EXCEPT the category chips (so chip counts can be computed)
+function passNonCat(j) {
   if (hidden.has(j.id) && !$("t-show-dismissed").checked) return false;
   if (applied.has(j.id) && $("t-hide-applied").checked) return false;
   if ($("t-new").checked && !j.is_new) return false;
   if ($("t-remote").checked && !j.remote) return false;
-  if (activeCats.size && !(j.categories || []).some((c) => activeCats.has(c))) return false;
+  const loc = $("loc").value;
+  if (loc && !inRegion(j, loc)) return false;
   const role = $("role").value;
   if (role && j.role_type !== role) return false;
   const sp = $("spons").value;
@@ -107,6 +130,9 @@ function matches(j) {
     if (!q.split(/\s+/).every((w) => hay.includes(w))) return false;
   }
   return true;
+}
+function matches(j) {
+  return passNonCat(j) && (!activeCats.size || (j.categories || []).some((c) => activeCats.has(c)));
 }
 
 function sortJobs(list) {
@@ -164,11 +190,16 @@ function jobRow(j) {
 
 function render() {
   savePrefs();
-  const filtered = sortJobs(JOBS.filter(matches));
+  // base = everything matching the current filters EXCEPT category chips.
+  const base = JOBS.filter(passNonCat);
+  updateChipCounts(base);
+  const filtered = sortJobs(base.filter((j) =>
+    !activeCats.size || (j.categories || []).some((c) => activeCats.has(c))));
   const shown = filtered.slice(0, CAP);
   $("list").innerHTML = shown.map(jobRow).join("");
   $("empty").style.display = filtered.length ? "none" : "block";
   $("s-total").textContent = filtered.length;
+  $("s-new").textContent = filtered.filter((j) => j.is_new).length;   // NEW in current view
   $("count-line").textContent =
     `${filtered.length} match${filtered.length === 1 ? "" : "es"}` +
     (filtered.length > CAP ? ` (showing first ${CAP})` : "") +
@@ -212,19 +243,37 @@ function setupSources() {
     .join("");
 }
 
+async function loadData() {
+  const [jobs, meta] = await Promise.all([
+    fetch("jobs.json?_=" + Date.now()).then((r) => r.json()),
+    fetch("meta.json?_=" + Date.now()).then((r) => r.json()).catch(() => ({})),
+  ]);
+  JOBS = jobs; META = meta;
+  $("s-updated").textContent = META.generated_ts ? relTime(META.generated_ts) : "—";
+}
+
+// Re-pull the latest auto-scraped data file (the cron updates it ~every 30 min).
+// A static page can't run the Python scraper itself; this fetches the freshest
+// committed jobs.json. To force a brand-new scrape, run the GitHub Action.
+async function refresh() {
+  const btn = $("refresh");
+  if (btn.classList.contains("spin")) return;
+  btn.classList.add("spin");
+  try {
+    await loadData();
+    setupSources();
+    render();
+  } catch (e) { /* keep showing current data */ }
+  setTimeout(() => btn.classList.remove("spin"), 700);
+}
+
 async function boot() {
   try {
-    const [jobs, meta] = await Promise.all([
-      fetch("jobs.json?_=" + Date.now()).then((r) => r.json()),
-      fetch("meta.json?_=" + Date.now()).then((r) => r.json()).catch(() => ({})),
-    ]);
-    JOBS = jobs; META = meta;
+    await loadData();
   } catch (e) {
     $("list").innerHTML = `<div class="empty">Couldn't load jobs.json — has the scraper run yet?</div>`;
     return;
   }
-  $("s-new").textContent = META.new_this_run || 0;
-  $("s-updated").textContent = META.generated_ts ? relTime(META.generated_ts) : "—";
   loadPrefs();
   buildChips();
   setupSources();
@@ -233,8 +282,9 @@ async function boot() {
   let t;
   const deb = () => { clearTimeout(t); t = setTimeout(render, 150); };
   $("q").addEventListener("input", deb);
-  ["posted", "sort", "role", "spons"].forEach((id) => $(id).addEventListener("change", render));
+  ["posted", "sort", "loc", "role", "spons"].forEach((id) => $(id).addEventListener("change", render));
   ["t-new", "t-remote", "t-hide-applied", "t-show-dismissed"].forEach((id) => $(id).addEventListener("change", render));
+  $("refresh").addEventListener("click", refresh);
 }
 
 boot();

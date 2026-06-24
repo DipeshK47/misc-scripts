@@ -19,7 +19,7 @@ from datetime import datetime, timezone
 
 import yaml
 
-from sources import github_repos, greenhouse, lever, ashby
+from sources import github_repos, greenhouse, lever, ashby, markdown_repos, workday
 from sources.base import now_ts, now_iso, is_early_career, is_senior
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -53,19 +53,23 @@ def save_json(path, data):
 # --------------------------------------------------------------------------- #
 # Collect from every source (in parallel, isolated failures)
 # --------------------------------------------------------------------------- #
-def collect(repos_cfg, companies_cfg, early_only):
+def collect(repos_cfg, companies_cfg, md_cfg, wd_cfg, early_only):
     tasks = []  # (label, callable)
     for repo in repos_cfg.get("repos", []):
         tasks.append((f"github:{repo['name']}", lambda r=repo: github_repos.fetch(r)))
+    for md in md_cfg.get("markdown_repos", []) or []:
+        tasks.append((f"md:{md['name']}", lambda m=md: markdown_repos.fetch(m)))
     for tok in companies_cfg.get("greenhouse", []) or []:
         tasks.append((f"greenhouse:{tok}", lambda t=tok: greenhouse.fetch(t, early_only)))
     for c in companies_cfg.get("lever", []) or []:
         tasks.append((f"lever:{c}", lambda x=c: lever.fetch(x, early_only)))
     for o in companies_cfg.get("ashby", []) or []:
         tasks.append((f"ashby:{o}", lambda x=o: ashby.fetch(x, early_only)))
+    for wd in wd_cfg.get("workday", []) or []:
+        tasks.append((f"workday:{wd['name']}", lambda w=wd: workday.fetch(w, early_only)))
 
     jobs, health = [], []
-    with ThreadPoolExecutor(max_workers=12) as ex:
+    with ThreadPoolExecutor(max_workers=20) as ex:
         futs = {ex.submit(fn): label for label, fn in tasks}
         for fut in as_completed(futs):
             label = futs[fut]
@@ -85,6 +89,8 @@ def collect(repos_cfg, companies_cfg, early_only):
 # --------------------------------------------------------------------------- #
 def keep(job, filt, now):
     if not job.get("title") or not job.get("url"):
+        return False
+    if not str(job.get("url", "")).startswith("http"):
         return False
     if filt.get("us_only", True) and not job.get("is_us", True):
         return False
@@ -175,11 +181,13 @@ def apply_seen(jobs, filt, now):
 def main():
     repos_cfg = load_yaml("repos.yaml")
     companies_cfg = load_yaml("companies.yaml")
+    md_cfg = load_yaml("markdown_repos.yaml")
+    wd_cfg = load_yaml("workday.yaml")
     filt = load_yaml("filters.yaml")
     now = now_ts()
 
     print("== collecting ==")
-    raw, health = collect(repos_cfg, companies_cfg,
+    raw, health = collect(repos_cfg, companies_cfg, md_cfg, wd_cfg,
                           filt.get("ats_early_career_only", True))
     print(f"collected {len(raw)} raw rows from {len(health)} sources")
 

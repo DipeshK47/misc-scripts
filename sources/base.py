@@ -39,6 +39,40 @@ def get_json(url, params=None, timeout=25, retries=3, backoff=2.0):
     raise last if last else RuntimeError(f"failed: {url}")
 
 
+def post_json(url, payload, timeout=25, retries=3, backoff=2.0, headers=None):
+    """POST JSON and parse JSON response, with retry."""
+    last = None
+    for attempt in range(retries):
+        try:
+            r = _session.post(url, json=payload, timeout=timeout, headers=headers)
+            if r.status_code == 200:
+                return r.json()
+            if r.status_code in (400, 401, 403, 404, 410):
+                raise requests.HTTPError(f"{r.status_code} for {url}")
+            last = requests.HTTPError(f"{r.status_code} for {url}")
+        except Exception as e:  # noqa: BLE001
+            last = e
+        time.sleep(backoff * (attempt + 1))
+    raise last if last else RuntimeError(f"failed: {url}")
+
+
+def get_text(url, timeout=40, retries=3, backoff=2.0):
+    """GET a URL and return text (for markdown READMEs)."""
+    last = None
+    for attempt in range(retries):
+        try:
+            r = _session.get(url, timeout=timeout)
+            if r.status_code == 200:
+                return r.text
+            if r.status_code in (401, 403, 404, 410):
+                raise requests.HTTPError(f"{r.status_code} for {url}")
+            last = requests.HTTPError(f"{r.status_code} for {url}")
+        except Exception as e:  # noqa: BLE001
+            last = e
+        time.sleep(backoff * (attempt + 1))
+    raise last if last else RuntimeError(f"failed: {url}")
+
+
 # --------------------------------------------------------------------------- #
 # Time helpers
 # --------------------------------------------------------------------------- #
