@@ -10,9 +10,11 @@ from __future__ import annotations
 
 import re
 
-from .base import post_json, make_job, now_ts, is_early_career
+from .base import post_json, make_job, now_ts, ats_should_keep
 
-SEARCH_TERMS = ["intern", "new grad", "university graduate", "early career"]
+# Workday boards are huge; we query early-career search terms to stay efficient,
+# so Workday stays new-grad/intern-focused even in 'non_senior' mode.
+SEARCH_TERMS = ["intern", "new grad", "university graduate", "early career", "associate"]
 
 
 def _posted_ts(s, now):
@@ -33,7 +35,7 @@ def _posted_ts(s, now):
     return None
 
 
-def fetch(cfg, early_career_only=True, max_pages=4):
+def fetch(cfg, mode="non_senior", max_pages=4):
     base = f"https://{cfg['tenant']}.{cfg['dc']}.myworkdayjobs.com"
     cxs = f"{base}/wday/cxs/{cfg['tenant']}/{cfg['site']}/jobs"
     pub = f"{base}/en-US/{cfg['site']}"
@@ -55,7 +57,7 @@ def fetch(cfg, early_career_only=True, max_pages=4):
                     continue
                 seen.add(path)
                 title = j.get("title") or ""
-                if early_career_only and not is_early_career(title):
+                if not ats_should_keep(title, mode):
                     continue
                 loc = j.get("locationsText") or ""
                 jobs.append(make_job(

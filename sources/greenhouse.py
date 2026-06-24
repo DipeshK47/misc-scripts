@@ -6,17 +6,17 @@ Returns {"jobs":[{id,title,absolute_url,location:{name},updated_at,first_publish
 """
 from __future__ import annotations
 
-from .base import get_json, make_job, iso_to_ts, is_early_career
+from .base import get_json, make_job, iso_to_ts, ats_should_keep
 
 API = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs"
 
 
-def fetch(token, early_career_only=True) -> list[dict]:
+def fetch(token, mode="non_senior") -> list[dict]:
     data = get_json(API.format(token=token), params={"content": "true"}, timeout=30)
     jobs = []
     for j in (data or {}).get("jobs", []):
         title = j.get("title") or ""
-        if early_career_only and not is_early_career(title):
+        if not ats_should_keep(title, mode):
             continue
         loc = (j.get("location") or {}).get("name") or ""
         # Use ONLY first_published as the post date. updated_at changes whenever a

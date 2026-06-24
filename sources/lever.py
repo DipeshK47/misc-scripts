@@ -6,19 +6,19 @@ hostedUrl,applyUrl,createdAt(ms epoch),...}
 """
 from __future__ import annotations
 
-from .base import get_json, make_job, is_early_career
+from .base import get_json, make_job, ats_should_keep
 
 API = "https://api.lever.co/v0/postings/{company}"
 
 
-def fetch(company, early_career_only=True) -> list[dict]:
+def fetch(company, mode="non_senior") -> list[dict]:
     data = get_json(API.format(company=company), params={"mode": "json"}, timeout=30)
     if not isinstance(data, list):
         return []
     jobs = []
     for j in data:
         title = j.get("text") or ""
-        if early_career_only and not is_early_career(title):
+        if not ats_should_keep(title, mode):
             continue
         cats = j.get("categories") or {}
         loc = cats.get("location") or ""

@@ -55,6 +55,7 @@ function loadPrefs() {
   $("sort").value = p.sort || "posted";
   $("loc").value = p.loc || "";
   $("role").value = p.role || "";
+  $("level").value = p.level || "";
   $("spons").value = p.spons || "";
   $("t-new").checked = !!p.tnew;
   $("t-remote").checked = !!p.tremote;
@@ -65,7 +66,7 @@ function loadPrefs() {
 function savePrefs() {
   localStorage.setItem(LS.prefs, JSON.stringify({
     q: $("q").value, posted: $("posted").value, sort: $("sort").value, loc: $("loc").value,
-    role: $("role").value, spons: $("spons").value,
+    role: $("role").value, level: $("level").value, spons: $("spons").value,
     tnew: $("t-new").checked, tremote: $("t-remote").checked,
     thideApplied: $("t-hide-applied").checked, tshowDismissed: $("t-show-dismissed").checked,
     cats: [...activeCats],
@@ -117,6 +118,8 @@ function passNonCat(j) {
   if (loc && !inRegion(j, loc)) return false;
   const role = $("role").value;
   if (role && j.role_type !== role) return false;
+  const level = $("level").value;
+  if (level && j.level !== level) return false;
   const sp = $("spons").value;
   if (sp && j.sponsorship !== sp) return false;
   const days = parseInt($("posted").value, 10);
@@ -171,7 +174,7 @@ function jobRow(j) {
       </div>
       <div class="j-tags">
         ${cats}
-        ${j.role_type && ROLE_LABEL[j.role_type] ? `<span class="t role">${ROLE_LABEL[j.role_type]}</span>` : ""}
+        ${j.role_type && ROLE_LABEL[j.role_type] ? `<span class="t role">${ROLE_LABEL[j.role_type]}</span>` : (j.level === "mid" ? '<span class="t role">Entry–mid</span>' : "")}
         <span class="badge ${j.sponsorship}">${SPONS_LABEL[j.sponsorship] || ""}</span>
         <span class="t src">${esc(srcName)}</span>
       </div>
@@ -282,7 +285,7 @@ async function boot() {
   let t;
   const deb = () => { clearTimeout(t); t = setTimeout(render, 150); };
   $("q").addEventListener("input", deb);
-  ["posted", "sort", "loc", "role", "spons"].forEach((id) => $(id).addEventListener("change", render));
+  ["posted", "sort", "loc", "role", "level", "spons"].forEach((id) => $(id).addEventListener("change", render));
   ["t-new", "t-remote", "t-hide-applied", "t-show-dismissed"].forEach((id) => $(id).addEventListener("change", render));
   $("refresh").addEventListener("click", refresh);
 }

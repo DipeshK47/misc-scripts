@@ -53,20 +53,20 @@ def save_json(path, data):
 # --------------------------------------------------------------------------- #
 # Collect from every source (in parallel, isolated failures)
 # --------------------------------------------------------------------------- #
-def collect(repos_cfg, companies_cfg, md_cfg, wd_cfg, early_only):
+def collect(repos_cfg, companies_cfg, md_cfg, wd_cfg, mode):
     tasks = []  # (label, callable)
     for repo in repos_cfg.get("repos", []):
         tasks.append((f"github:{repo['name']}", lambda r=repo: github_repos.fetch(r)))
     for md in md_cfg.get("markdown_repos", []) or []:
         tasks.append((f"md:{md['name']}", lambda m=md: markdown_repos.fetch(m)))
     for tok in companies_cfg.get("greenhouse", []) or []:
-        tasks.append((f"greenhouse:{tok}", lambda t=tok: greenhouse.fetch(t, early_only)))
+        tasks.append((f"greenhouse:{tok}", lambda t=tok: greenhouse.fetch(t, mode)))
     for c in companies_cfg.get("lever", []) or []:
-        tasks.append((f"lever:{c}", lambda x=c: lever.fetch(x, early_only)))
+        tasks.append((f"lever:{c}", lambda x=c: lever.fetch(x, mode)))
     for o in companies_cfg.get("ashby", []) or []:
-        tasks.append((f"ashby:{o}", lambda x=o: ashby.fetch(x, early_only)))
+        tasks.append((f"ashby:{o}", lambda x=o: ashby.fetch(x, mode)))
     for wd in wd_cfg.get("workday", []) or []:
-        tasks.append((f"workday:{wd['name']}", lambda w=wd: workday.fetch(w, early_only)))
+        tasks.append((f"workday:{wd['name']}", lambda w=wd: workday.fetch(w, mode)))
 
     jobs, health = [], []
     with ThreadPoolExecutor(max_workers=20) as ex:
@@ -188,7 +188,7 @@ def main():
 
     print("== collecting ==")
     raw, health = collect(repos_cfg, companies_cfg, md_cfg, wd_cfg,
-                          filt.get("ats_early_career_only", True))
+                          filt.get("ats_level", "non_senior"))
     print(f"collected {len(raw)} raw rows from {len(health)} sources")
 
     filtered = [j for j in raw if keep(j, filt, now)]

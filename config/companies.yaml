@@ -29,6 +29,8 @@ greenhouse:
   - stabilityai
   - assemblyai
   - databricks
+  # robotics / autonomy / ag-tech / hardware
+  - bluerivertech
   # data / dev-tools / infra
   - datadog
   - mongodb

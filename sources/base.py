@@ -225,6 +225,25 @@ def is_early_career(title: str) -> bool:
     return not is_senior(title)
 
 
+def ats_should_keep(title: str, mode: str = "non_senior") -> bool:
+    """Gate for company ATS boards.
+    early_only -> only intern/new-grad/junior titles.
+    non_senior -> all entry + mid individual-contributor roles (drop senior/mgmt).
+    """
+    if mode == "early_only":
+        return is_early_career(title)
+    return not is_senior(title)
+
+
+def job_level(title: str, role_type: str) -> str:
+    """early (intern/new-grad) | mid (non-senior IC) | senior."""
+    if role_type in ("internship", "new_grad"):
+        return "early"
+    if is_senior(title):
+        return "senior"
+    return "mid"
+
+
 _SPONSOR_MAP = {
     "offers sponsorship": "offers",
     "does not offer sponsorship": "no_sponsorship",
@@ -341,6 +360,7 @@ def make_job(*, title, company, url, source, source_type,
         "date_updated": ts_to_iso(date_updated_ts),
         "categories": cats,
         "role_type": role,
+        "level": job_level(title, role),
         "sponsorship": spons,
         "remote": is_remote,
         "is_us": is_us,

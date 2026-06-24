@@ -7,19 +7,19 @@ address:{postalAddress:{addressRegion,addressCountry,addressLocality}}}]}
 """
 from __future__ import annotations
 
-from .base import get_json, make_job, iso_to_ts, is_early_career
+from .base import get_json, make_job, iso_to_ts, ats_should_keep
 
 API = "https://api.ashbyhq.com/posting-api/job-board/{org}"
 
 
-def fetch(org, early_career_only=True) -> list[dict]:
+def fetch(org, mode="non_senior") -> list[dict]:
     data = get_json(API.format(org=org), timeout=30)
     jobs = []
     for j in (data or {}).get("jobs", []):
         if j.get("isListed") is False:
             continue
         title = j.get("title") or ""
-        if early_career_only and not is_early_career(title):
+        if not ats_should_keep(title, mode):
             continue
         locs = [j.get("location")] + (j.get("secondaryLocations") or [])
         # secondaryLocations may be list of dicts with 'location'

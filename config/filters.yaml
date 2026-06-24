@@ -14,8 +14,10 @@ us_only: true
 # ai_ml | research | data_science | data_analytics | software | webdev | quant
 target_categories: [ai_ml, research, data_science, data_analytics, software, webdev, quant]
 
-# From ATS company boards, keep only intern / new-grad / junior titles.
-ats_early_career_only: true
+# From ATS company boards: how wide to cast the net.
+#   non_senior -> keep all entry + mid IC roles (e.g. "ML Engineer"), drop senior/mgmt
+#   early_only -> keep only intern / new-grad / junior titles
+ats_level: non_senior
 
 # Prune the seen-state file: forget jobs not seen for this many days.
 seen_retention_days: 120
