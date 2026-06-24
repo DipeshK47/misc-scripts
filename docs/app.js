@@ -43,6 +43,10 @@ function relTime(ts) {
   if (d < 30) return d + "d ago";
   return Math.floor(d / 30) + "mo ago";
 }
+function absDate(ts) {
+  if (!ts) return "";
+  return new Date(ts * 1000).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
 
 function loadPrefs() {
   const p = JSON.parse(localStorage.getItem(LS.prefs) || "{}");
@@ -53,14 +57,16 @@ function loadPrefs() {
   $("spons").value = p.spons || "";
   $("t-new").checked = !!p.tnew;
   $("t-remote").checked = !!p.tremote;
-  $("t-applied").checked = p.tapplied !== false;
+  $("t-hide-applied").checked = !!p.thideApplied;
+  $("t-show-dismissed").checked = !!p.tshowDismissed;
   activeCats = new Set(p.cats || []);
 }
 function savePrefs() {
   localStorage.setItem(LS.prefs, JSON.stringify({
     q: $("q").value, posted: $("posted").value, sort: $("sort").value,
     role: $("role").value, spons: $("spons").value,
-    tnew: $("t-new").checked, tremote: $("t-remote").checked, tapplied: $("t-applied").checked,
+    tnew: $("t-new").checked, tremote: $("t-remote").checked,
+    thideApplied: $("t-hide-applied").checked, tshowDismissed: $("t-show-dismissed").checked,
     cats: [...activeCats],
   }));
 }
@@ -81,7 +87,8 @@ function buildChips() {
 }
 
 function matches(j) {
-  if ($("t-applied").checked && (applied.has(j.id) || hidden.has(j.id))) return false;
+  if (hidden.has(j.id) && !$("t-show-dismissed").checked) return false;
+  if (applied.has(j.id) && $("t-hide-applied").checked) return false;
   if ($("t-new").checked && !j.is_new) return false;
   if ($("t-remote").checked && !j.remote) return false;
   if (activeCats.size && !(j.categories || []).some((c) => activeCats.has(c))) return false;
@@ -112,15 +119,24 @@ function sortJobs(list) {
 const CAP = 500;
 function jobRow(j) {
   const cats = (j.categories || []).map((c) => `<span class="t cat">${esc((CATEGORIES.find((x) => x[0] === c) || [, c])[1])}</span>`).join("");
+  const srcName = (j.sources && j.sources[0] || j.source || "").split(":").slice(-1)[0];
   const ref = j.date_posted_ts || j.first_seen_ts;
   const fresh = ref && ref > Math.floor(Date.now() / 1000) - 86400;
-  const when = j.date_posted_ts ? relTime(j.date_posted_ts) : "found " + relTime(j.first_seen_ts);
-  const srcName = (j.sources && j.sources[0] || j.source || "").split(":").slice(-1)[0];
+  let when, whenTitle;
+  if (j.date_posted_ts) {
+    when = `${absDate(j.date_posted_ts)} · ${relTime(j.date_posted_ts)}`;
+    whenTitle = `First listed ${new Date(j.date_posted_ts * 1000).toLocaleString()} (via ${srcName}). A company's own page may show a different internal posting date.`;
+  } else {
+    when = `found ${relTime(j.first_seen_ts)}`;
+    whenTitle = `No post-date from the source; JobRadar first saw this ${relTime(j.first_seen_ts)} (via ${srcName}).`;
+  }
   const isApplied = applied.has(j.id);
+  const isHidden = hidden.has(j.id);
   return `<div class="job${j.is_new ? " is-new" : ""}${isApplied ? " applied" : ""}" data-id="${j.id}">
     <div class="j-main">
       <div>
         ${j.is_new ? '<span class="pill-new">NEW</span> ' : ""}<a class="j-title" href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>
+        ${isApplied ? ' <span class="pill-applied" data-act="unapply" title="Click to unmark">✓ Applied</span>' : ""}
       </div>
       <div class="j-sub">
         <span class="j-company">${esc(j.company)}</span>
@@ -135,10 +151,12 @@ function jobRow(j) {
       </div>
     </div>
     <div class="j-right">
-      <span class="j-when${fresh ? " fresh" : ""}">${when}</span>
+      <span class="j-when${fresh ? " fresh" : ""}" title="${esc(whenTitle)}">${when}</span>
       <div class="j-actions">
         <a class="btn apply" href="${esc(j.url)}" target="_blank" rel="noopener" data-act="apply">Apply ↗</a>
-        <button class="btn ghost" data-act="hide" title="Dismiss">✕</button>
+        ${isHidden
+          ? '<button class="btn ghost" data-act="restore" title="Restore">↩</button>'
+          : '<button class="btn ghost" data-act="hide" title="Dismiss">✕</button>'}
       </div>
     </div>
   </div>`;
@@ -157,17 +175,29 @@ function render() {
     ` · ${JOBS.length} tracked`;
   $("applied-count").textContent = `${applied.size} applied · ${hidden.size} dismissed`;
 
+  const counts = () => { $("applied-count").textContent = `${applied.size} applied · ${hidden.size} dismissed`; };
   $("list").querySelectorAll(".job").forEach((el) => {
     const id = el.dataset.id;
+    const unapply = (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } applied.delete(id); save(LS.applied, applied); render(); };
+    // Apply: follow the link (default <a>) AND mark applied — but never auto-hide
+    // unless the user opted into "Hide applied".
     el.querySelector('[data-act="apply"]').addEventListener("click", () => {
       applied.add(id); save(LS.applied, applied);
       el.classList.add("applied");
-      if ($("t-applied").checked) setTimeout(render, 400);
-      $("applied-count").textContent = `${applied.size} applied · ${hidden.size} dismissed`;
+      if (!el.querySelector(".pill-applied")) {
+        const t = el.querySelector(".j-title");
+        t.insertAdjacentHTML("afterend", ' <span class="pill-applied" data-act="unapply" title="Click to unmark">✓ Applied</span>');
+        el.querySelector(".pill-applied").addEventListener("click", unapply);
+      }
+      counts();
+      if ($("t-hide-applied").checked) setTimeout(render, 500);
     });
-    el.querySelector('[data-act="hide"]').addEventListener("click", () => {
-      hidden.add(id); save(LS.hidden, hidden); render();
-    });
+    const pa = el.querySelector('[data-act="unapply"]');
+    if (pa) pa.addEventListener("click", unapply);
+    const hideBtn = el.querySelector('[data-act="hide"]');
+    if (hideBtn) hideBtn.addEventListener("click", () => { hidden.add(id); save(LS.hidden, hidden); render(); });
+    const restoreBtn = el.querySelector('[data-act="restore"]');
+    if (restoreBtn) restoreBtn.addEventListener("click", () => { hidden.delete(id); save(LS.hidden, hidden); render(); });
   });
 }
 
@@ -204,7 +234,7 @@ async function boot() {
   const deb = () => { clearTimeout(t); t = setTimeout(render, 150); };
   $("q").addEventListener("input", deb);
   ["posted", "sort", "role", "spons"].forEach((id) => $(id).addEventListener("change", render));
-  ["t-new", "t-remote", "t-applied"].forEach((id) => $(id).addEventListener("change", render));
+  ["t-new", "t-remote", "t-hide-applied", "t-show-dismissed"].forEach((id) => $(id).addEventListener("change", render));
 }
 
 boot();

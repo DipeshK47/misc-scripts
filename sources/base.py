@@ -119,10 +119,16 @@ CATEGORY_KEYWORDS = {
 # short tokens that must match on word boundaries to avoid false positives
 _SHORT_TOKENS = {" ai ", " ml ", " cv ", " bi ", " ds ", "swe", "sde", "sre"}
 
-_INTERN_KW = [
-    "intern", "internship", "co-op", "co op", "coop", "summer 20", "fall 20",
-    "spring 20", "winter 20", "apprentice", "placement", "working student",
-]
+# Word-boundary regex so "intern" matches intern/interns/internship but NOT
+# "internal" / "international" / "internet" (which were false-positiving before).
+_INTERN_RE = re.compile(
+    r"\b(?:intern(?:s|ship|ships)?|co ?op|coop|apprentice\w*|practicum|trainee|"
+    r"working student|summer ?20\d\d|fall ?20\d\d|spring ?20\d\d|winter ?20\d\d)\b"
+)
+
+
+def _is_intern(norm_text: str) -> bool:
+    return bool(_INTERN_RE.search(norm_text))
 _NEWGRAD_KW = [
     "new grad", "new graduate", "newgrad", "university grad", "university graduate",
     "early career", "early-career", "entry level", "entry-level", "campus",
@@ -158,7 +164,7 @@ def classify_categories(title: str, extra: str = "") -> list[str]:
 
 def classify_role_type(title: str, default: str | None = None) -> str:
     t = _norm(title)
-    if any(k in t for k in _INTERN_KW):
+    if _is_intern(t):
         return "internship"
     if any(k in t for k in _NEWGRAD_KW):
         return "new_grad"
@@ -175,11 +181,12 @@ def is_senior(title: str) -> bool:
 def is_early_career(title: str) -> bool:
     """For ATS sources: keep only intern / new-grad / junior roles."""
     t = _norm(title)
-    early = any(k in t for k in _INTERN_KW) or any(k in t for k in _NEWGRAD_KW)
-    if not early:
+    intern = _is_intern(t)
+    newgrad = any(k in t for k in _NEWGRAD_KW)
+    if not (intern or newgrad):
         return False
-    # drop "senior X internship" style mismatches but keep "new grad" even if "lead"
-    if "intern" in t or "internship" in t or "co-op" in t or "new grad" in t:
+    # interns and explicit "new grad" always qualify; otherwise drop senior titles
+    if intern or "new grad" in t or "new graduate" in t:
         return True
     return not is_senior(title)
 

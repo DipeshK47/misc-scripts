@@ -19,7 +19,10 @@ def fetch(token, early_career_only=True) -> list[dict]:
         if early_career_only and not is_early_career(title):
             continue
         loc = (j.get("location") or {}).get("name") or ""
-        posted = iso_to_ts(j.get("first_published")) or iso_to_ts(j.get("updated_at"))
+        # Use ONLY first_published as the post date. updated_at changes whenever a
+        # recruiter edits the posting, so it would make old jobs look brand new.
+        # If first_published is missing, leave posted empty -> UI shows "found <when>".
+        posted = iso_to_ts(j.get("first_published"))
         jobs.append(make_job(
             title=title,
             company=token,
