@@ -7,102 +7,114 @@
 <title>JobRadar — fresh new-grad &amp; intern jobs</title>
 <meta name="description" content="Continuously-updated US new-grad, internship & research jobs in AI/ML, data science, software & analytics — sorted by time posted.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+<link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+<header class="app-head wrap reveal" style="--i:0">
   <div class="head-inner">
     <div class="brand">
       <h1>Job<span class="dot">Radar</span></h1>
-      <span class="tag">fresh roles, sorted by time posted</span>
+      <span class="tag">freshest roles first · updates every 15 min</span>
     </div>
     <div class="stats">
       <div class="stat"><b id="s-total">—</b><span>showing</span></div>
       <div class="stat new"><b id="s-new">—</b><span>new</span></div>
       <div class="stat"><b id="s-updated">—</b><span>updated</span></div>
     </div>
-    <span id="scrape-status" class="lbl"></span>
-    <button id="refresh" class="ref" title="Pull the latest auto-scraped jobs">
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2v3h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Refresh</span>
-    </button>
-    <button id="scrape-now" class="ref accent" title="Trigger a brand-new scrape now" style="display:none">
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8.5 1.5L3 9h4l-.5 5.5L13 7H9l-.5-5.5z" fill="currentColor"/></svg>
-      <span>Scrape now</span>
-    </button>
+    <div class="actions">
+      <span id="scrape-status" class="lbl"></span>
+      <button id="refresh" class="ref" title="Pull the latest auto-scraped jobs">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2v3h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Refresh</span>
+      </button>
+      <button id="scrape-now" class="ref accent" title="Trigger a brand-new scrape now" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8.5 1.5L3 9h4l-.5 5.5L13 7H9l-.5-5.5z" fill="currentColor"/></svg>
+        <span>Scrape now</span>
+      </button>
+    </div>
   </div>
 </header>
 
-<div class="toolbar">
+<div class="toolbar reveal" style="--i:1">
   <div class="tb-inner">
     <div class="tb-row">
       <label class="search">
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <input type="search" id="q" placeholder="Search company, title, location…  e.g. machine learning, OpenAI, New York">
+        <input type="search" id="q" placeholder="Search company, title, location…">
       </label>
-      <select id="loc" title="Filter by location">
+      <div class="seg" id="role-seg" aria-label="Role type">
+        <span class="seg-thumb" id="seg-thumb" aria-hidden="true"></span>
+        <button class="seg-btn" data-role="" aria-pressed="true">All roles</button>
+        <button class="seg-btn" data-role="internship" aria-pressed="false">Interns</button>
+        <button class="seg-btn" data-role="new_grad" aria-pressed="false">Full-time</button>
+      </div>
+    </div>
+    <div class="tb-row">
+      <span class="sel"><select id="loc" title="Filter by location">
         <option value="">All locations</option>
-        <option value="metro">📍 NY / NJ metro</option>
+        <option value="metro">NY / NJ metro</option>
         <option value="nyc">New York City</option>
         <option value="nystate">New York State</option>
         <option value="nj">New Jersey</option>
         <option value="remote">Remote</option>
-      </select>
-      <select id="posted">
+      </select></span>
+      <span class="sel"><select id="posted">
         <option value="1">Posted &lt; 24h</option>
         <option value="3">Posted &lt; 3 days</option>
         <option value="7">Posted &lt; 7 days</option>
         <option value="14">Posted &lt; 14 days</option>
         <option value="9999">Any time</option>
-      </select>
-      <select id="sort">
+      </select></span>
+      <span class="sel"><select id="sort">
         <option value="posted">Newest posted</option>
         <option value="found">Newest discovered</option>
         <option value="company">Company A–Z</option>
-      </select>
-    </div>
-    <div class="tb-row">
-      <div class="chips" id="cat-chips"></div>
-      <span class="spacer"></span>
-      <select id="role">
-        <option value="">All roles</option>
-        <option value="internship">Internships</option>
-        <option value="new_grad">New grad</option>
-      </select>
-      <select id="level" title="Seniority level">
+      </select></span>
+      <span class="sel"><select id="level" title="Seniority level">
         <option value="">All levels</option>
         <option value="early">New grad &amp; intern</option>
         <option value="mid">Entry–mid</option>
-      </select>
-      <select id="spons">
+      </select></span>
+      <span class="sel"><select id="spons">
         <option value="">Any sponsorship</option>
         <option value="offers">Offers sponsorship</option>
         <option value="no_sponsorship">No sponsorship</option>
         <option value="citizen_required">Citizen required</option>
         <option value="unknown">Unknown</option>
-      </select>
+      </select></span>
+      <span class="spacer"></span>
+      <label class="toggle"><input type="checkbox" id="t-new"> New only</label>
+      <label class="toggle"><input type="checkbox" id="t-remote"> Remote</label>
+      <label class="toggle" title="When off, jobs you've applied to stay visible."><input type="checkbox" id="t-hide-applied"> Hide applied</label>
+      <label class="toggle" title="Bring back jobs you dismissed with ✕."><input type="checkbox" id="t-show-dismissed"> Dismissed</label>
     </div>
     <div class="tb-row">
-      <label class="toggle"><input type="checkbox" id="t-new"> New only</label>
-      <label class="toggle"><input type="checkbox" id="t-remote"> Remote only</label>
-      <label class="toggle" title="When off, jobs you've applied to stay visible (greyed out)."><input type="checkbox" id="t-hide-applied"> Hide applied</label>
-      <label class="toggle" title="Bring back jobs you dismissed with ✕."><input type="checkbox" id="t-show-dismissed"> Show dismissed</label>
+      <span class="row-lbl">Field</span>
+      <div class="chips" id="cat-chips"></div>
+    </div>
+    <div class="tb-row">
+      <span class="row-lbl">Source</span>
+      <div class="chips" id="src-chips"></div>
       <span class="spacer"></span>
       <span class="lbl" id="applied-count"></span>
     </div>
   </div>
 </div>
 
-<main>
+<main class="wrap reveal" style="--i:2">
   <div class="count-line" id="count-line"></div>
   <div id="list"></div>
   <div class="empty" id="empty" style="display:none">No jobs match these filters.</div>
 </main>
 
-<footer>
+<footer class="wrap">
   <div id="src-line"></div>
-  <div class="src-health" id="src-health"></div>
-  <p style="margin-top:14px">JobRadar pulls from curated GitHub trackers + company ATS boards (Greenhouse / Lever / Ashby) and refreshes automatically. Your “applied” and “dismissed” marks live only in this browser.</p>
+  <details>
+    <summary>Source health</summary>
+    <div class="src-health" id="src-health"></div>
+  </details>
+  <p>JobRadar pulls from curated GitHub trackers + company ATS boards (Greenhouse / Lever / Ashby / Workday) and refreshes automatically. Your “applied” and “dismissed” marks live only in this browser.</p>
 </footer>
 
 <script src="config.js"></script>

@@ -9,6 +9,14 @@ const CATEGORIES = [
   ["webdev", "Web Dev"],
   ["quant", "Quant"],
 ];
+// source-prefix -> chip label; a job matches if ANY of its sources has the prefix
+const SOURCES = [
+  ["greenhouse", "Greenhouse"],
+  ["lever", "Lever"],
+  ["ashby", "Ashby"],
+  ["workday", "Workday"],
+  ["github", "GitHub lists"],
+];
 const SPONS_LABEL = {
   offers: "Sponsors",
   no_sponsorship: "No sponsorship",
@@ -28,6 +36,9 @@ let META = {};
 let applied = new Set(JSON.parse(localStorage.getItem(LS.applied) || "[]"));
 let hidden = new Set(JSON.parse(localStorage.getItem(LS.hidden) || "[]"));
 let activeCats = new Set();
+let activeSrcs = new Set();     // source prefixes ("greenhouse", "github", …)
+let roleSel = "";               // "", "internship", "new_grad" (segmented control)
+let booting = true;             // first render gets the staggered reveal
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => (s || "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -54,7 +65,7 @@ function loadPrefs() {
   $("posted").value = p.posted || String(META.default_view_days || 7);
   $("sort").value = p.sort || "posted";
   $("loc").value = p.loc || "";
-  $("role").value = p.role || "";
+  roleSel = p.role || "";
   $("level").value = p.level || "";
   $("spons").value = p.spons || "";
   $("t-new").checked = !!p.tnew;
@@ -62,37 +73,57 @@ function loadPrefs() {
   $("t-hide-applied").checked = !!p.thideApplied;
   $("t-show-dismissed").checked = !!p.tshowDismissed;
   activeCats = new Set(p.cats || []);
+  activeSrcs = new Set(p.srcs || []);
 }
 function savePrefs() {
   localStorage.setItem(LS.prefs, JSON.stringify({
     q: $("q").value, posted: $("posted").value, sort: $("sort").value, loc: $("loc").value,
-    role: $("role").value, level: $("level").value, spons: $("spons").value,
+    role: roleSel, level: $("level").value, spons: $("spons").value,
     tnew: $("t-new").checked, tremote: $("t-remote").checked,
     thideApplied: $("t-hide-applied").checked, tshowDismissed: $("t-show-dismissed").checked,
-    cats: [...activeCats],
+    cats: [...activeCats], srcs: [...activeSrcs],
   }));
 }
 
-function buildChips() {
-  $("cat-chips").innerHTML = CATEGORIES
-    .map(([k, label]) => `<span class="chip${activeCats.has(k) ? " on" : ""}" data-cat="${k}">${label}<span class="c">0</span></span>`)
+function buildChipGroup(elId, defs, activeSet) {
+  $(elId).innerHTML = defs
+    .map(([k, label]) => `<span class="chip${activeSet.has(k) ? " on" : ""}" data-key="${k}" role="button" tabindex="0">${label}<span class="c">0</span></span>`)
     .join("");
-  $("cat-chips").querySelectorAll(".chip").forEach((el) =>
-    el.addEventListener("click", () => {
-      const c = el.dataset.cat;
-      activeCats.has(c) ? activeCats.delete(c) : activeCats.add(c);
+  $(elId).querySelectorAll(".chip").forEach((el) => {
+    const toggle = () => {
+      const k = el.dataset.key;
+      activeSet.has(k) ? activeSet.delete(k) : activeSet.add(k);
       el.classList.toggle("on");
       render();
-    }));
-}
-// chip counts reflect the CURRENT filters (minus the category itself), so they
-// always tell you how many you'd actually get.
-function updateChipCounts(base) {
-  const counts = {};
-  base.forEach((j) => (j.categories || []).forEach((c) => (counts[c] = (counts[c] || 0) + 1)));
-  $("cat-chips").querySelectorAll(".chip").forEach((el) => {
-    el.querySelector(".c").textContent = counts[el.dataset.cat] || 0;
+    };
+    el.addEventListener("click", toggle);
+    el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
   });
+}
+// chip counts reflect the CURRENT filters (minus the chip group itself), so they
+// always tell you how many you'd actually get.
+function updateChipCounts(elId, counts) {
+  $(elId).querySelectorAll(".chip").forEach((el) => {
+    el.querySelector(".c").textContent = counts[el.dataset.key] || 0;
+  });
+}
+
+function srcPrefixes(j) {
+  return (j.sources && j.sources.length ? j.sources : [j.source || ""]).map((s) => String(s).split(":")[0]);
+}
+
+/* segmented role control */
+function buildSeg() {
+  const btns = [...document.querySelectorAll("#role-seg .seg-btn")];
+  const sync = () => {
+    btns.forEach((b, i) => {
+      const on = (b.dataset.role || "") === roleSel;
+      b.setAttribute("aria-pressed", String(on));
+      if (on) $("seg-thumb").style.transform = `translateX(${i * 100}%)`;
+    });
+  };
+  btns.forEach((b) => b.addEventListener("click", () => { roleSel = b.dataset.role || ""; sync(); render(); }));
+  sync();
 }
 
 function inRegion(j, region) {
@@ -116,8 +147,7 @@ function passNonCat(j) {
   if ($("t-remote").checked && !j.remote) return false;
   const loc = $("loc").value;
   if (loc && !inRegion(j, loc)) return false;
-  const role = $("role").value;
-  if (role && j.role_type !== role) return false;
+  if (roleSel && j.role_type !== roleSel) return false;
   const level = $("level").value;
   if (level && j.level !== level) return false;
   const sp = $("spons").value;
@@ -134,9 +164,8 @@ function passNonCat(j) {
   }
   return true;
 }
-function matches(j) {
-  return passNonCat(j) && (!activeCats.size || (j.categories || []).some((c) => activeCats.has(c)));
-}
+const catPass = (j) => !activeCats.size || (j.categories || []).some((c) => activeCats.has(c));
+const srcPass = (j) => !activeSrcs.size || srcPrefixes(j).some((p) => activeSrcs.has(p));
 
 function sortJobs(list) {
   const s = $("sort").value;
@@ -146,7 +175,8 @@ function sortJobs(list) {
 }
 
 const CAP = 500;
-function jobRow(j) {
+function jobRow(j, i) {
+  const stagger = booting ? ` reveal" style="--i:${Math.min(i || 0, 12)}` : "";
   const cats = (j.categories || []).map((c) => `<span class="t cat">${esc((CATEGORIES.find((x) => x[0] === c) || [, c])[1])}</span>`).join("");
   const srcName = (j.sources && j.sources[0] || j.source || "").split(":").slice(-1)[0];
   const ref = j.date_posted_ts || j.first_seen_ts;
@@ -161,7 +191,7 @@ function jobRow(j) {
   }
   const isApplied = applied.has(j.id);
   const isHidden = hidden.has(j.id);
-  return `<div class="job${j.is_new ? " is-new" : ""}${isApplied ? " applied" : ""}" data-id="${j.id}">
+  return `<div class="job${j.is_new ? " is-new" : ""}${isApplied ? " applied" : ""}${stagger}" data-id="${j.id}">
     <div class="j-main">
       <div>
         ${j.is_new ? '<span class="pill-new">NEW</span> ' : ""}<a class="j-title" href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>
@@ -170,7 +200,7 @@ function jobRow(j) {
       <div class="j-sub">
         <span class="j-company">${esc(j.company)}</span>
         ${j.location ? "· " + esc(j.location) : ""}
-        ${j.remote ? '· <span style="color:var(--green)">Remote</span>' : ""}
+        ${j.remote ? '· <span class="j-remote">Remote</span>' : ""}
       </div>
       <div class="j-tags">
         ${cats}
@@ -193,11 +223,16 @@ function jobRow(j) {
 
 function render() {
   savePrefs();
-  // base = everything matching the current filters EXCEPT category chips.
+  // base = everything matching the current filters EXCEPT the two chip groups.
   const base = JOBS.filter(passNonCat);
-  updateChipCounts(base);
-  const filtered = sortJobs(base.filter((j) =>
-    !activeCats.size || (j.categories || []).some((c) => activeCats.has(c))));
+  const catCounts = {}, srcCounts = {};
+  base.forEach((j) => {
+    if (srcPass(j)) (j.categories || []).forEach((c) => (catCounts[c] = (catCounts[c] || 0) + 1));
+    if (catPass(j)) new Set(srcPrefixes(j)).forEach((p) => (srcCounts[p] = (srcCounts[p] || 0) + 1));
+  });
+  updateChipCounts("cat-chips", catCounts);
+  updateChipCounts("src-chips", srcCounts);
+  const filtered = sortJobs(base.filter((j) => catPass(j) && srcPass(j)));
   const shown = filtered.slice(0, CAP);
   $("list").innerHTML = shown.map(jobRow).join("");
   $("empty").style.display = filtered.length ? "none" : "block";
@@ -316,6 +351,22 @@ async function scrapeNow() {
   }, 10000);
 }
 
+// one-time count-up on the header stats (skipped under reduced motion)
+function countUpStats() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  ["s-total", "s-new"].forEach((id) => {
+    const el = $(id), end = parseInt(el.textContent, 10);
+    if (!end) return;
+    const t0 = performance.now(), dur = 600;
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+
 async function boot() {
   try {
     await loadData();
@@ -324,14 +375,18 @@ async function boot() {
     return;
   }
   loadPrefs();
-  buildChips();
+  buildChipGroup("cat-chips", CATEGORIES, activeCats);
+  buildChipGroup("src-chips", SOURCES, activeSrcs);
+  buildSeg();
   setupSources();
   render();
+  booting = false;          // later renders skip the entrance stagger
+  countUpStats();
 
   let t;
   const deb = () => { clearTimeout(t); t = setTimeout(render, 150); };
   $("q").addEventListener("input", deb);
-  ["posted", "sort", "loc", "role", "level", "spons"].forEach((id) => $(id).addEventListener("change", render));
+  ["posted", "sort", "loc", "level", "spons"].forEach((id) => $(id).addEventListener("change", render));
   ["t-new", "t-remote", "t-hide-applied", "t-show-dismissed"].forEach((id) => $(id).addEventListener("change", render));
   $("refresh").addEventListener("click", refresh);
   const sn = $("scrape-now");

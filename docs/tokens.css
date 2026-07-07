@@ -1,0 +1,67 @@
+/* Hallmark tokens · theme: Quiet (modern-minimal) · anchor hue 250 (cool) */
+:root {
+  /* color — light */
+  --color-paper:    oklch(97.5% 0.004 250);
+  --color-card:     oklch(99.5% 0.002 250);
+  --color-fill:     oklch(93% 0.006 250);
+  --color-fill-2:   oklch(89% 0.008 250);
+  --color-rule:     oklch(90% 0.005 250);
+  --color-ink:      oklch(21% 0.012 250);
+  --color-muted:    oklch(45% 0.014 250);
+  --color-faint:    oklch(58% 0.012 250);
+  --color-accent:   oklch(54% 0.19 255);
+  --color-accent-tint: oklch(54% 0.19 255 / 0.11);
+  --color-focus:    oklch(54% 0.19 255);
+  --color-green:    oklch(50% 0.14 150);
+  --color-green-tint: oklch(50% 0.14 150 / 0.12);
+  --color-red:      oklch(50% 0.17 25);
+  --color-amber:    oklch(52% 0.13 75);
+  --color-veil:     oklch(97.5% 0.004 250 / 0.78);
+  --shadow-thumb:   0 1px 3px oklch(20% 0.01 250 / 0.14), 0 0 1px oklch(20% 0.01 250 / 0.18);
+
+  /* type */
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text",
+             "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --text-xs: 0.6875rem;   /* 11 */
+  --text-sm: 0.8125rem;   /* 13 */
+  --text-md: 0.9375rem;   /* 15 */
+  --text-lg: 1.375rem;    /* 22 */
+  --text-xl: 1.75rem;     /* 28 */
+  --track-tight: -0.022em;
+  --track-snug: -0.012em;
+
+  /* space — 4pt */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px;
+  --space-4: 16px; --space-5: 24px; --space-6: 32px; --space-7: 48px;
+
+  /* radius */
+  --radius-sm: 7px; --radius-md: 10px; --radius-lg: 14px; --radius-pill: 999px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper:    oklch(13.5% 0.008 250);
+    --color-card:     oklch(17.5% 0.01 250);
+    --color-fill:     oklch(23% 0.012 250);
+    --color-fill-2:   oklch(28% 0.012 250);
+    --color-rule:     oklch(27% 0.01 250);
+    --color-ink:      oklch(93% 0.006 250);
+    --color-muted:    oklch(70% 0.01 250);
+    --color-faint:    oklch(58% 0.01 250);
+    --color-accent:   oklch(70% 0.15 255);
+    --color-accent-tint: oklch(70% 0.15 255 / 0.15);
+    --color-focus:    oklch(70% 0.15 255);
+    --color-green:    oklch(72% 0.13 150);
+    --color-green-tint: oklch(72% 0.13 150 / 0.14);
+    --color-red:      oklch(70% 0.15 25);
+    --color-amber:    oklch(75% 0.12 80);
+    --color-veil:     oklch(13.5% 0.008 250 / 0.72);
+    --shadow-thumb:   0 1px 3px oklch(0% 0 0 / 0.45), 0 0 1px oklch(0% 0 0 / 0.5);
+  }
+}
