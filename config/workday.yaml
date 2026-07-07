@@ -1,0 +1,14 @@
+# Workday boards (big employers). Each needs tenant + datacenter (wd1/wd5/wd12…)
+# + site id — all from the careers URL. Verified live.
+workday:
+  - {name: NVIDIA,      tenant: nvidia,     dc: wd5,  site: NVIDIAExternalCareerSite}
+  - {name: Salesforce,  tenant: salesforce, dc: wd12, site: External_Career_Site}
+  - {name: Adobe,       tenant: adobe,      dc: wd5,  site: external_experienced}
+  - {name: Workday,     tenant: workday,    dc: wd5,  site: Workday}
+  - {name: Dell,        tenant: dell,       dc: wd1,  site: External}
+  - {name: Cisco,       tenant: cisco,      dc: wd5,  site: Cisco_Careers}
+  - {name: Mastercard,  tenant: mastercard, dc: wd1,  site: CorporateCareers}
+  - {name: Visa,        tenant: visa,       dc: wd5,  site: Visa}
+  - {name: Capital One, tenant: capitalone, dc: wd12, site: Capital_One}
+  - {name: Comcast,     tenant: comcast,    dc: wd5,  site: Comcast_Careers}
+  - {name: Sony,        tenant: sonyglobal, dc: wd1,  site: SonyGlobalCareers}

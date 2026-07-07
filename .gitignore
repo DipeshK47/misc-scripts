@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.tmp
+state/new_this_run.json
+.DS_Store
+
+# added via GitHub web UI (PAT lacks workflow scope)
+.github/workflows/update.yml

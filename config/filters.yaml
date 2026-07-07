@@ -1,0 +1,29 @@
+# Output + filtering knobs.
+
+# Keep a job if it was posted within this many days...
+window_days_posted: 45
+# ...OR we first discovered it within this many days (covers undated ATS jobs).
+window_days_seen: 14
+# Dashboard's default "posted within" filter (you can change it in the UI live).
+default_view_days: 7
+
+# Keep only US + US-remote roles (each job still carries an is_us flag).
+us_only: true
+
+# A job is kept only if it matches at least one of these categories.
+# ai_ml | research | data_science | data_analytics | software | webdev | quant
+target_categories: [ai_ml, research, data_science, data_analytics, software, webdev, quant]
+
+# From ATS company boards: how wide to cast the net.
+#   non_senior -> keep all entry + mid IC roles (e.g. "ML Engineer"), drop senior/mgmt
+#   early_only -> keep only intern / new-grad / junior titles
+ats_level: non_senior
+
+# Prune the seen-state file: forget jobs not seen for this many days.
+seen_retention_days: 120
+
+# New-job notifications (Discord/Slack webhook set via env in CI).
+notify:
+  enabled: true
+  max_per_run: 25
+  categories: [ai_ml, research, data_science, data_analytics, software, webdev, quant]

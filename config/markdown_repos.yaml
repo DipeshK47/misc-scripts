@@ -1,0 +1,70 @@
+# Curated repos that publish a markdown TABLE instead of listings.json.
+# idx = 0-based column positions; date_kind = mon_dd | age | auto.
+markdown_repos:
+  - name: jobright-ai/2026-Software-Engineer-New-Grad
+    url: https://raw.githubusercontent.com/jobright-ai/2026-Software-Engineer-New-Grad/master/README.md
+    header: ["Company", "Job Title"]
+    idx: {company: 0, role: 1, location: 2, apply: 1, date: 4}
+    date_kind: mon_dd
+    carry_forward: true
+    default_role: new_grad
+    hint: "software engineer"
+
+  - name: jobright-ai/2026-Data-Analysis-New-Grad
+    url: https://raw.githubusercontent.com/jobright-ai/2026-Data-Analysis-New-Grad/master/README.md
+    header: ["Company", "Job Title"]
+    idx: {company: 0, role: 1, location: 2, apply: 1, date: 4}
+    date_kind: mon_dd
+    carry_forward: true
+    default_role: new_grad
+    hint: "data analyst data analytics"
+
+  - name: jobright-ai/2026-Data-Analysis-Internship
+    url: https://raw.githubusercontent.com/jobright-ai/2026-Data-Analysis-Internship/master/README.md
+    header: ["Company", "Job Title"]
+    idx: {company: 0, role: 1, location: 2, apply: 1, date: 4}
+    date_kind: mon_dd
+    carry_forward: true
+    default_role: internship
+    hint: "data analyst data analytics"
+
+  - name: speedyapply/2026-AI-College-Jobs
+    url: https://raw.githubusercontent.com/speedyapply/2026-AI-College-Jobs/main/README.md
+    header: ["Company", "Position"]
+    idx: {company: 0, role: 1, location: 2, apply: 4, date: 5}
+    date_kind: age
+    default_role: new_grad
+    hint: "machine learning ai"
+
+  - name: speedyapply/2026-SWE-College-Jobs (new grad)
+    url: https://raw.githubusercontent.com/speedyapply/2026-SWE-College-Jobs/main/NEW_GRAD_USA.md
+    header: ["Company", "Position"]
+    idx: {company: 0, role: 1, location: 2, apply: 4, date: 5}
+    date_kind: age
+    default_role: new_grad
+    hint: "software engineer"
+
+  - name: speedyapply/2026-SWE-College-Jobs (intern)
+    url: https://raw.githubusercontent.com/speedyapply/2026-SWE-College-Jobs/main/README.md
+    header: ["Company", "Position"]
+    idx: {company: 0, role: 1, location: 2, apply: 4, date: 5}
+    date_kind: age
+    default_role: internship
+    hint: "software engineer"
+
+  - name: sndsh404/summer-2027-internships
+    url: https://raw.githubusercontent.com/sndsh404/summer-2027-internships/main/README.md
+    header: ["Company", "Role"]
+    idx: {company: 0, role: 1, location: 2, apply: 3, date: 4}
+    date_kind: auto
+    default_role: internship
+    hint: ""
+
+  - name: zapplyjobs/New-Grad-Jobs-2027
+    url: https://raw.githubusercontent.com/zapplyjobs/New-Grad-Jobs-2027/main/README.md
+    header: ["Company", "Role"]
+    idx: {company: 0, role: 1, location: 2, apply: 5, date: 3}
+    date_kind: auto
+    visa_idx: 4
+    default_role: new_grad
+    hint: ""
