@@ -19,7 +19,7 @@ from datetime import datetime, timezone
 
 import yaml
 
-from sources import github_repos, greenhouse, lever, ashby, markdown_repos, workday
+from sources import github_repos, greenhouse, lever, ashby, markdown_repos, workday, smartrecruiters, workable, themuse
 from sources.base import now_ts, now_iso, is_early_career, is_senior
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -67,6 +67,11 @@ def collect(repos_cfg, companies_cfg, md_cfg, wd_cfg, mode):
         tasks.append((f"ashby:{o}", lambda x=o: ashby.fetch(x, mode)))
     for wd in wd_cfg.get("workday", []) or []:
         tasks.append((f"workday:{wd['name']}", lambda w=wd: workday.fetch(w, mode)))
+    for t in companies_cfg.get("smartrecruiters", []) or []:
+        tasks.append((f"smartrecruiters:{t}", lambda x=t: smartrecruiters.fetch(x, mode)))
+    for a in companies_cfg.get("workable", []) or []:
+        tasks.append((f"workable:{a}", lambda x=a: workable.fetch(x, mode)))
+    tasks.append(("muse:jobs", lambda: themuse.fetch(None, mode)))
 
     jobs, health = [], []
     with ThreadPoolExecutor(max_workers=32) as ex:

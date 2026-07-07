@@ -141,7 +141,6 @@ greenhouse:
   - manifoldbio
   - marqeta
   - melio
-  - memphismeats
   - mercury
   - midihealth
   - mill
@@ -191,7 +190,6 @@ greenhouse:
   - recordedfuture
   - recursionpharmaceuticals
   - reddit
-  - redpandadata
   - redwoodmaterials
   - relativity
   - riotgamesinc
@@ -246,7 +244,6 @@ greenhouse:
   - trueanomalyinc
   - twilio
   - twitch
-  - unity3d
   - upgrade
   - urbansky
   - ursamajor
@@ -603,3 +600,13 @@ ashby:
   - zefr
   - zip
   - zydro
+
+# SmartRecruiters public API (api.smartrecruiters.com/v1/companies/<token>/postings)
+smartrecruiters:
+  - ServiceNow
+  - Ubisoft2
+  - Visa
+
+# Workable public widget API (apply.workable.com/api/v1/widget/accounts/<account>)
+workable:
+  - huggingface

@@ -4,23 +4,17 @@
 # has .github/scripts/listings.json on its default branch, and paste the raw URL.
 repos:
   # ---- New-grad full-time ----
-  - name: vanshb03/New-Grad-2027
-    url: https://raw.githubusercontent.com/vanshb03/New-Grad-2027/dev/.github/scripts/listings.json
-    default_role: new_grad
+  # (dropped 2026-07-07: vanshb03/New-Grad-2027 stale since Apr 2026;
+  #  cvrve/New-Grad-2025 is a rename-alias of the same repo = duplicate)
   - name: SimplifyJobs/New-Grad-Positions
     url: https://raw.githubusercontent.com/SimplifyJobs/New-Grad-Positions/dev/.github/scripts/listings.json
     default_role: new_grad
-  - name: cvrve/New-Grad-2025
-    url: https://raw.githubusercontent.com/cvrve/New-Grad-2025/main/.github/scripts/listings.json
-    default_role: new_grad
 
   # ---- Internships (Summer 2026 / 2027 + off-cycle) ----
+  # (dropped 2026-07-07: both-sides/summer2026-internships dead since Jul 2025)
   - name: vanshb03/Summer2027-Internships
     url: https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json
     default_role: internship
   - name: SimplifyJobs/Summer2026-Internships
     url: https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/.github/scripts/listings.json
-    default_role: internship
-  - name: both-sides/summer2026-internships
-    url: https://raw.githubusercontent.com/both-sides/summer2026-internships/dev/.github/scripts/listings.json
     default_role: internship
