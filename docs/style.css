@@ -100,7 +100,7 @@ button { font: inherit; color: inherit; }
 }
 .search input::placeholder { color: var(--color-faint); }
 
-/* segmented control — All / Interns / Full-time */
+/* segmented control — All / Internships / New Grad */
 .seg {
   position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
   height: 34px; min-width: 270px; padding: 2px;
