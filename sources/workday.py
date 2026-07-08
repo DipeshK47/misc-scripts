@@ -14,7 +14,10 @@ from .base import post_json, make_job, now_ts, ats_should_keep
 
 # Workday boards are huge; we query early-career search terms to stay efficient,
 # so Workday stays new-grad/intern-focused even in 'non_senior' mode.
-SEARCH_TERMS = ["intern", "new grad", "university graduate", "early career", "associate"]
+# ponytail: 3 terms × 2 pages = 6 POSTs/board (was 5×4=20). This board is
+# new-grad/intern-only, so these three terms cover the target; raise if a big
+# Workday employer is demonstrably missing early-career roles.
+SEARCH_TERMS = ["intern", "new grad", "university graduate"]
 
 
 def _posted_ts(s, now):
@@ -35,7 +38,7 @@ def _posted_ts(s, now):
     return None
 
 
-def fetch(cfg, mode="non_senior", max_pages=4):
+def fetch(cfg, mode="non_senior", max_pages=2):
     base = f"https://{cfg['tenant']}.{cfg['dc']}.myworkdayjobs.com"
     cxs = f"{base}/wday/cxs/{cfg['tenant']}/{cfg['site']}/jobs"
     pub = f"{base}/en-US/{cfg['site']}"

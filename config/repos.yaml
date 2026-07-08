@@ -18,3 +18,7 @@ repos:
   - name: SimplifyJobs/Summer2026-Internships
     url: https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/.github/scripts/listings.json
     default_role: internship
+  - name: zshah101/2027-internships
+    url: https://zshah101.github.io/Automated-List-Of-Summer-2027-and-Fall-2026-Tech-Internships/api/jobs.json
+    schema: zshah
+    default_role: internship

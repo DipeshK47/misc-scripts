@@ -17,7 +17,12 @@ const SOURCES = [
   ["workday", "Workday"],
   ["smartrecruiters", "SmartRecruiters"],
   ["workable", "Workable"],
+  ["recruitee", "Recruitee"],
+  ["eightfold", "Eightfold"],
+  ["direct", "Company sites"],
   ["muse", "The Muse"],
+  ["remoteok", "RemoteOK"],
+  ["weworkremotely", "WeWorkRemotely"],
   ["github", "GitHub lists"],
 ];
 const SPONS_LABEL = {

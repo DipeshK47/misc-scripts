@@ -12,3 +12,952 @@ workday:
   - {name: Capital One, tenant: capitalone, dc: wd12, site: Capital_One}
   - {name: Comcast,     tenant: comcast,    dc: wd5,  site: Comcast_Careers}
   - {name: Sony,        tenant: sonyglobal, dc: wd1,  site: SonyGlobalCareers}
+  # ---- auto-verified 2026-07-07 (>=1 relevant early-career posting) ----
+  - {name: '2020 Companies', tenant: 2020companies, dc: wd1, site: external_careers}
+  - {name: '3M', tenant: 3m, dc: wd1, site: Search}
+  - {name: '3M', tenant: 3m, dc: wd1, site: search}
+  - {name: '7-Eleven', tenant: 7eleven, dc: wd3, site: 7eleven}
+  - {name: '8x8', tenant: 8x8inc, dc: wd5, site: 8x8_external_careers}
+  - {name: 'CSAA Insurance Group', tenant: aaaie, dc: wd1, site: csaacareers}
+  - {name: 'Aaamid Atlantic', tenant: aaamidatlantic, dc: wd5, site: AAAMidAtlantic}
+  - {name: 'Aaamidatlantic', tenant: aaamidatlantic, dc: wd5, site: aaamidatlantic}
+  - {name: 'Aah', tenant: aah, dc: wd5, site: External}
+  - {name: 'Advocate Health', tenant: aah, dc: wd5, site: external}
+  - {name: 'Aalto University', tenant: aalto, dc: wd3, site: aalto}
+  - {name: 'Abb', tenant: abb, dc: wd3, site: external_career_page}
+  - {name: 'Abbott', tenant: abbott, dc: wd5, site: abbottcareers}
+  - {name: 'A&K Travel Group', tenant: abercrombiekent, dc: wd12, site: abercrombiekent_careers}
+  - {name: 'Abglobal', tenant: abglobal, dc: wd1, site: alliancebernsteincareers}
+  - {name: 'Academy® Sports + Outdoors', tenant: academy, dc: wd1, site: careers}
+  - {name: 'Accelleron', tenant: accelleron, dc: wd3, site: accelleron}
+  - {name: 'Accenture', tenant: accenture, dc: wd103, site: AccentureCareers}
+  - {name: 'Accenture', tenant: accenture, dc: wd103, site: AvanadeCareers}
+  - {name: 'Accenture', tenant: accenture, dc: wd103, site: accenturecareers}
+  - {name: 'Avanade', tenant: accenture, dc: wd103, site: avanadecareers}
+  - {name: 'Acciona', tenant: acciona, dc: wd3, site: acciona_employment_channel}
+  - {name: 'Acg', tenant: acg, dc: wd1, site: Careers}
+  - {name: 'Auto Club Group (ACG)', tenant: acg, dc: wd1, site: careers}
+  - {name: 'Acrisure', tenant: acrisure, dc: wd1, site: Acrisure}
+  - {name: 'Acrisure', tenant: acrisure, dc: wd1, site: acrisure}
+  - {name: 'ACRT Services', tenant: acrt, dc: wd1, site: acrt_careers}
+  - {name: 'Acs', tenant: acs, dc: wd5, site: acscareers}
+  - {name: 'Acushnetgolf', tenant: acushnetgolf, dc: wd12, site: ACU}
+  - {name: 'Acushnetgolf', tenant: acushnetgolf, dc: wd12, site: acu}
+  - {name: 'Adient', tenant: adient, dc: wd3, site: External}
+  - {name: 'Adient', tenant: adient, dc: wd3, site: external}
+  - {name: 'Admiral', tenant: admiralbeverage, dc: wd5, site: external}
+  - {name: 'Adtran', tenant: adtran, dc: wd3, site: adtran}
+  - {name: 'Advance Auto Parts, Inc', tenant: advanceauto, dc: wd5, site: advanceexternalcareers}
+  - {name: 'Advantech', tenant: advantech, dc: wd3, site: external}
+  - {name: 'Ah', tenant: adventhealth, dc: wd12, site: ah_external_career_site}
+  - {name: 'Adventisthealthcare', tenant: adventisthealthcare, dc: wd1, site: adventisthealthcarecareers}
+  - {name: 'Aeci', tenant: aeci, dc: wd1, site: aeci}
+  - {name: 'AEGIS London', tenant: aegislondon, dc: wd3, site: Careers}
+  - {name: 'Aegistherapies', tenant: aegistherapies, dc: wd1, site: aegiscareers}
+  - {name: 'Aep', tenant: aep, dc: wd1, site: AEPCareerSite}
+  - {name: 'Aep', tenant: aep, dc: wd1, site: aepcareersite}
+  - {name: 'Aerospace Corporation', tenant: aero, dc: wd5, site: external}
+  - {name: 'Aes', tenant: aes, dc: wd1, site: AES_US}
+  - {name: 'Aes', tenant: aes, dc: wd1, site: aes_us}
+  - {name: 'Ag', tenant: ag, dc: wd3, site: Airbus}
+  - {name: 'Ag', tenant: ag, dc: wd3, site: airbus}
+  - {name: 'AGC Biologics', tenant: agcbio, dc: wd5, site: agcbio_careers}
+  - {name: 'Aggreko', tenant: aggreko, dc: wd3, site: aggreko_careers_1}
+  - {name: 'Agilent', tenant: agilent, dc: wd5, site: Agilent_Careers}
+  - {name: 'Agilent', tenant: agilent, dc: wd5, site: Agilent_Student_Careers}
+  - {name: 'Agilent', tenant: agilent, dc: wd5, site: agilent_careers}
+  - {name: 'Agilent', tenant: agilent, dc: wd5, site: agilent_student_careers}
+  - {name: 'Agiliti', tenant: agiliti, dc: wd5, site: careers}
+  - {name: 'AGRANA', tenant: agrana, dc: wd3, site: careers}
+  - {name: 'AIA', tenant: aia, dc: wd3, site: external}
+  - {name: 'Aig', tenant: aig, dc: wd1, site: aig}
+  - {name: 'Aig', tenant: aig, dc: wd1, site: early_careers}
+  - {name: 'Aig', tenant: aig, dc: wd1, site: japan}
+  - {name: 'Aims Community College', tenant: aims, dc: wd1, site: jobs}
+  - {name: 'Airasia', tenant: airasia, dc: wd3, site: careers}
+  - {name: 'Airliquidehr', tenant: airliquidehr, dc: wd3, site: AirLiquideExternalCareer}
+  - {name: 'Airliquidehr', tenant: airliquidehr, dc: wd3, site: airgasexternalcareer}
+  - {name: 'Airliquidehr', tenant: airliquidehr, dc: wd3, site: airliquideexternalcareer}
+  - {name: 'Airproducts', tenant: airproducts, dc: wd5, site: AP0001}
+  - {name: 'Air Products', tenant: airproducts, dc: wd5, site: ap0001}
+  - {name: 'Akamerica', tenant: akamerica, dc: wd501, site: aka}
+  - {name: 'Aksteel', tenant: aksteel, dc: wd1, site: careers}
+  - {name: 'Alantra', tenant: alantra, dc: wd3, site: alantra}
+  - {name: 'Alation', tenant: alation, dc: wd503, site: ExternalSite}
+  - {name: 'Albany Med', tenant: albanymed, dc: wd5, site: albany_med}
+  - {name: 'Alcoa', tenant: alcoa, dc: wd5, site: careers}
+  - {name: 'Alcon', tenant: alcon, dc: wd5, site: careers_alcon}
+  - {name: 'Alegeus', tenant: alegeus, dc: wd1, site: Alegeus_External_Careers}
+  - {name: 'Alegeus', tenant: alegeus, dc: wd1, site: alegeus_external_careers}
+  - {name: 'Alfalaval', tenant: alfalaval, dc: wd3, site: Alfa_Laval_jobs}
+  - {name: 'Alfalaval', tenant: alfalaval, dc: wd3, site: alfa_laval_jobs}
+  - {name: 'Aliaxis', tenant: aliaxis, dc: wd3, site: aliaxis}
+  - {name: 'Aliaxis EMEA', tenant: aliaxis, dc: wd3, site: aliaxis_emea}
+  - {name: 'Alight', tenant: alight, dc: wd5, site: careers}
+  - {name: 'Aligned DC', tenant: aligneddc, dc: wd12, site: aligneddc}
+  - {name: 'Alignment Health', tenant: alignmenthealthcare, dc: wd12, site: ahc_external}
+  - {name: 'Allegion', tenant: allegion, dc: wd5, site: careers}
+  - {name: 'Allegro', tenant: allegromicro, dc: wd5, site: allegrocareers}
+  - {name: 'Allens', tenant: allens, dc: wd3, site: allens}
+  - {name: 'Nissan', tenant: alliance, dc: wd3, site: nissanjobs}
+  - {name: 'Bread Financial India', tenant: alliancedata, dc: wd5, site: breadfinancial_india}
+  - {name: 'Bread Financial Us', tenant: alliancedata, dc: wd5, site: breadfinancial_us}
+  - {name: 'Alliancewd', tenant: alliancewd, dc: wd3, site: alpine-racing-careers}
+  - {name: 'Alliantenergy', tenant: alliantenergy, dc: wd1, site: alliant}
+  - {name: 'Allina', tenant: allina, dc: wd5, site: external}
+  - {name: 'Allstate', tenant: allstate, dc: wd5, site: allstate_careers}
+  - {name: 'Allstate', tenant: allstate, dc: wd5, site: sourcing_event}
+  - {name: 'Alsa', tenant: alsa, dc: wd3, site: alsa}
+  - {name: 'Alsacstjude', tenant: alsacstjude, dc: wd1, site: careersalsacstjude}
+  - {name: 'Alsglobal', tenant: alsglobal, dc: wd103, site: External}
+  - {name: 'ALS', tenant: alsglobal, dc: wd103, site: external}
+  - {name: 'Alston', tenant: alston, dc: wd1, site: ExternalCareer}
+  - {name: 'Altamed', tenant: altamed, dc: wd1, site: careers}
+  - {name: 'Altasciences', tenant: altasciences, dc: wd1, site: Careers}
+  - {name: 'Altasciences', tenant: altasciences, dc: wd1, site: careers}
+  - {name: 'Altera', tenant: altera, dc: wd1, site: altera}
+  - {name: 'Deer Valley Resort', tenant: alterra, dc: wd1, site: deervalleyresort}
+  - {name: 'Mammoth Mountain', tenant: alterra, dc: wd1, site: mammothmountain}
+  - {name: 'Alteryx', tenant: alteryx, dc: wd108, site: AlteryxCareers}
+  - {name: 'Alteryx', tenant: alteryx, dc: wd108, site: alteryxcareers}
+  - {name: 'Altusgroup', tenant: altusgroup, dc: wd3, site: altusgroup}
+  - {name: 'Amadeus', tenant: amadeus, dc: wd502, site: jobs}
+  - {name: 'AMA', tenant: amainc, dc: wd12, site: ama_careers}
+  - {name: 'Aman', tenant: aman, dc: wd103, site: amangroupexternal}
+  - {name: 'Amat', tenant: amat, dc: wd1, site: External}
+  - {name: 'Applied Materials', tenant: amat, dc: wd1, site: external}
+  - {name: 'Ambarella', tenant: ambarella, dc: wd108, site: ambarella}
+  - {name: 'Amcn', tenant: amcn, dc: wd5, site: amcnetworks}
+  - {name: 'Ameren', tenant: ameren, dc: wd1, site: External}
+  - {name: 'Collegiate Job Application Portal', tenant: ameren, dc: wd1, site: collegiate}
+  - {name: 'Ameren', tenant: ameren, dc: wd1, site: external}
+  - {name: 'Ameresco', tenant: ameresco, dc: wd5, site: Ameresco}
+  - {name: 'Ameresco', tenant: ameresco, dc: wd5, site: ameresco}
+  - {name: 'American University', tenant: american, dc: wd1, site: au}
+  - {name: 'Americancentury', tenant: americancentury, dc: wd5, site: AmericanCenturyInvestments}
+  - {name: 'American Century Investments®', tenant: americancentury, dc: wd5, site: americancenturyinvestments}
+  - {name: 'Americanfidelity', tenant: americanfidelity, dc: wd5, site: External}
+  - {name: 'Americanglobal', tenant: americanglobal, dc: wd108, site: american_global_careers}
+  - {name: 'Americanredcross', tenant: americanredcross, dc: wd1, site: american_red_cross_careers}
+  - {name: 'Ameriprise', tenant: ameriprise, dc: wd5, site: Ameriprise}
+  - {name: 'Ameriprise', tenant: ameriprise, dc: wd5, site: ameriprise}
+  - {name: 'Ames Construction', tenant: amesconstruction, dc: wd12, site: ames}
+  - {name: 'Amfam', tenant: amfam, dc: wd1, site: Careers}
+  - {name: 'Amfam', tenant: amfam, dc: wd1, site: careers}
+  - {name: 'Amgen', tenant: amgen, dc: wd1, site: careers}
+  - {name: 'Amh', tenant: amh, dc: wd12, site: External_Careers}
+  - {name: 'Amh', tenant: amh, dc: wd12, site: external_careers}
+  - {name: 'Amherst and Main Street Renewal', tenant: amherstgroup, dc: wd1, site: amherst_holdings_careers}
+  - {name: 'AMLRightSource', tenant: amlrightsource, dc: wd1, site: amlrightsource}
+  - {name: 'Amplity', tenant: amplity, dc: wd1, site: amplityhealth}
+  - {name: 'Us Amynta Group', tenant: amynta, dc: wd5, site: global}
+  - {name: 'Allco', tenant: anaheimducks, dc: wd5, site: allco}
+  - {name: 'Analogdevices', tenant: analogdevices, dc: wd1, site: External}
+  - {name: 'Analogdevices', tenant: analogdevices, dc: wd1, site: external}
+  - {name: 'Ancestry', tenant: ancestry, dc: wd501, site: Careers}
+  - {name: 'Anchorglass', tenant: anchorglass, dc: wd1, site: careers}
+  - {name: 'Anderson Automotive Group', tenant: andersonauto, dc: wd5, site: External}
+  - {name: 'Ankura', tenant: ankura, dc: wd5, site: ankura}
+  - {name: 'Ansira', tenant: ansira, dc: wd1, site: ansira_careers}
+  - {name: 'Antares', tenant: antares, dc: wd5, site: antares}
+  - {name: 'Aoins', tenant: aoins, dc: wd5, site: AutoOwners}
+  - {name: 'Auto-Owners Insurance', tenant: aoins, dc: wd5, site: autoowners}
+  - {name: 'Applebank', tenant: applebank, dc: wd5, site: applebankcareers}
+  - {name: 'Applied', tenant: applied, dc: wd501, site: applied}
+  - {name: 'AIS', tenant: appliedis, dc: wd5, site: ais_careers}
+  - {name: 'Aptiv', tenant: aptiv, dc: wd5, site: aptiv_careers}
+  - {name: 'AQA', tenant: aqa, dc: wd3, site: AQA}
+  - {name: 'Essential Utilities, Inc', tenant: aquaamerica, dc: wd5, site: essential_careers}
+  - {name: 'Arabelle Solutions', tenant: arabellesolutions, dc: wd3, site: Arabelle_Solutions}
+  - {name: 'Arbella', tenant: arbella, dc: wd5, site: Arbella}
+  - {name: 'Ardian', tenant: ardian, dc: wd103, site: ArdianCareers}
+  - {name: 'Ardian', tenant: ardian, dc: wd103, site: ardiancareers}
+  - {name: 'Aresmgmt', tenant: aresmgmt, dc: wd1, site: External}
+  - {name: 'Aresmgmt', tenant: aresmgmt, dc: wd1, site: external}
+  - {name: 'Argonne', tenant: argonne, dc: wd1, site: Argonne_Careers}
+  - {name: 'Argonne', tenant: argonne, dc: wd1, site: EDU_PUB}
+  - {name: 'ARGONNE', tenant: argonne, dc: wd1, site: argonne_careers}
+  - {name: 'Aristocrat', tenant: aristocrat, dc: wd3, site: aristocratexternalcareerssite}
+  - {name: 'Aritzia', tenant: aritzia, dc: wd3, site: External}
+  - {name: 'Aritzia', tenant: aritzia, dc: wd3, site: external}
+  - {name: 'Arkansas Blue Cross', tenant: arkbluecross, dc: wd1, site: abcbs_external_careers}
+  - {name: 'Arlo', tenant: arlo, dc: wd12, site: external_careers}
+  - {name: 'Armaninollp', tenant: armaninollp, dc: wd1, site: Armanino}
+  - {name: 'Arraytechinc', tenant: arraytechinc, dc: wd5, site: Array_Careers}
+  - {name: 'Arriva', tenant: arriva, dc: wd3, site: careers}
+  - {name: 'Ac', tenant: arrow, dc: wd1, site: ac}
+  - {name: 'Arrowstreetcapital', tenant: arrowstreetcapital, dc: wd5, site: Campus_Careers}
+  - {name: 'Arrowstreet Capital', tenant: arrowstreetcapital, dc: wd5, site: arrowstreet}
+  - {name: 'Ascensushr', tenant: ascensushr, dc: wd1, site: ascensuscareers}
+  - {name: 'Asda', tenant: asda, dc: wd103, site: AsdaJobs}
+  - {name: 'Asda', tenant: asda, dc: wd103, site: asdajobs}
+  - {name: 'Ashland', tenant: ashland, dc: wd12, site: AshlandCareers1}
+  - {name: 'Askbio', tenant: askbio, dc: wd12, site: AskBio}
+  - {name: 'AskBio Inc', tenant: askbio, dc: wd12, site: askbio}
+  - {name: 'Asmglobal', tenant: asmglobal, dc: wd1, site: careers}
+  - {name: 'Asml', tenant: asml, dc: wd3, site: asmlext1}
+  - {name: 'Assetmark', tenant: assetmark, dc: wd5, site: AssetMark_Careers}
+  - {name: 'AssetMark', tenant: assetmark, dc: wd5, site: assetmark_careers}
+  - {name: 'Assurant', tenant: assurant, dc: wd1, site: Assurant_Careers}
+  - {name: 'Assurant', tenant: assurant, dc: wd1, site: External_Limited_Posting}
+  - {name: 'Astemo', tenant: astemo, dc: wd102, site: Global_Career_Site}
+  - {name: 'Astemo', tenant: astemo, dc: wd102, site: global_career_site}
+  - {name: 'Astrazeneca', tenant: astrazeneca, dc: wd3, site: Careers}
+  - {name: 'AstraZeneca', tenant: astrazeneca, dc: wd3, site: careers}
+  - {name: 'Astreya', tenant: astreya, dc: wd5, site: life-at-astreya-opportunities}
+  - {name: 'Astro Malaysia Holdings Berhad (“Astro”)', tenant: astro, dc: wd3, site: astro_careers}
+  - {name: 'Asu', tenant: asu, dc: wd1, site: ASUStaffCareers}
+  - {name: 'Asuep', tenant: asuep, dc: wd5, site: ASUEP}
+  - {name: 'Asuep', tenant: asuep, dc: wd5, site: asuep}
+  - {name: 'Asuep', tenant: asuep, dc: wd5, site: newswell}
+  - {name: 'Asurion', tenant: asurion, dc: wd5, site: asurion_careers}
+  - {name: 'Athenago', tenant: athenago, dc: wd108, site: athena}
+  - {name: 'Athenahealth', tenant: athenahealth, dc: wd1, site: External}
+  - {name: 'Athenahealth', tenant: athenahealth, dc: wd1, site: external}
+  - {name: 'Athene', tenant: athene, dc: wd5, site: Apollo_Careers}
+  - {name: 'Athene', tenant: athene, dc: wd5, site: apollo_careers}
+  - {name: 'Athora', tenant: athora, dc: wd3, site: athora-careers}
+  - {name: 'Atrium Hospitality', tenant: atriumhospitality, dc: wd5, site: atriumhospitality}
+  - {name: 'Att', tenant: att, dc: wd1, site: ATTGeneral}
+  - {name: 'Att', tenant: att, dc: wd1, site: attgeneral}
+  - {name: 'National Audubon Society', tenant: audubon, dc: wd503, site: audubon}
+  - {name: 'Aussiebroadband', tenant: aussiebroadband, dc: wd3, site: external}
+  - {name: 'Austincc', tenant: austincc, dc: wd1, site: external}
+  - {name: 'Autodesk', tenant: autodesk, dc: wd1, site: Ext}
+  - {name: 'Autodesk', tenant: autodesk, dc: wd1, site: ext}
+  - {name: 'Autodesk', tenant: autodesk, dc: wd1, site: uni}
+  - {name: 'Automation Anywhere', tenant: automationanywhere, dc: wd5, site: automationanywherejobs}
+  - {name: 'Autonation', tenant: autonation, dc: wd5, site: Careers}
+  - {name: 'Autonation', tenant: autonation, dc: wd5, site: careers}
+  - {name: 'Autostore', tenant: autostore, dc: wd3, site: autostore}
+  - {name: 'Availity', tenant: availity, dc: wd1, site: availity_careers_us}
+  - {name: 'AvalonBay', tenant: avalonbay, dc: wd5, site: avbexternal}
+  - {name: 'Avant', tenant: avant, dc: wd503, site: external_careers}
+  - {name: 'Avav', tenant: avav, dc: wd1, site: AVAV}
+  - {name: 'Avav', tenant: avav, dc: wd1, site: avav}
+  - {name: 'Avera', tenant: avera, dc: wd5, site: avera-careers}
+  - {name: 'Avesis', tenant: avesis, dc: wd5, site: avesis}
+  - {name: 'Aveva', tenant: aveva, dc: wd3, site: AVEVA_careers}
+  - {name: 'Aveva', tenant: aveva, dc: wd3, site: RIB_Careers}
+  - {name: 'Aveva', tenant: aveva, dc: wd3, site: aveva_careers}
+  - {name: 'Aviagen', tenant: aviagen, dc: wd1, site: aviagen-careers}
+  - {name: 'Avisbudget', tenant: avisbudget, dc: wd1, site: abg_careers}
+  - {name: 'Aviva', tenant: aviva, dc: wd1, site: External}
+  - {name: 'Avnet', tenant: avnet, dc: wd1, site: external}
+  - {name: 'Avon', tenant: avon, dc: wd5, site: AvonCareers}
+  - {name: 'Art and Wellness Enterprises (AWE)', tenant: awe, dc: wd1, site: art_and_wellness}
+  - {name: 'Awepeople', tenant: awepeople, dc: wd3, site: Grad_Careers}
+  - {name: 'Awg', tenant: awg, dc: wd3, site: broadbean_external}
+  - {name: 'Axis', tenant: axis, dc: wd3, site: external_career_site}
+  - {name: 'Axiscapital', tenant: axiscapital, dc: wd1, site: axiscareers}
+  - {name: 'Axos', tenant: axos, dc: wd5, site: Axos}
+  - {name: 'Axos', tenant: axos, dc: wd5, site: axos}
+  - {name: 'Ayvens', tenant: ayvens, dc: wd3, site: ayvenscareers}
+  - {name: 'Azenta', tenant: azenta, dc: wd1, site: azentajobs}
+  - {name: 'Bacardi', tenant: bacardi, dc: wd3, site: Jobs_Bacardi}
+  - {name: 'Bacardi', tenant: bacardi, dc: wd3, site: jobs_bacardi}
+  - {name: 'Bah', tenant: bah, dc: wd1, site: BAH_Jobs}
+  - {name: 'Bah', tenant: bah, dc: wd1, site: Confidential}
+  - {name: 'Bah', tenant: bah, dc: wd1, site: bah_jobs}
+  - {name: 'Baincapital', tenant: baincapital, dc: wd1, site: External_Public}
+  - {name: 'Bain Capital, LP', tenant: baincapital, dc: wd1, site: external_public}
+  - {name: 'Baird', tenant: baird, dc: wd1, site: careers}
+  - {name: 'Bakerhughes', tenant: bakerhughes, dc: wd5, site: BakerHughes}
+  - {name: 'Baker Hughes', tenant: bakerhughes, dc: wd5, site: bakerhughes}
+  - {name: 'Bakertilly', tenant: bakertilly, dc: wd5, site: BTCareers}
+  - {name: 'Baker Tilly', tenant: bakertilly, dc: wd5, site: btcareers}
+  - {name: 'Baltimorecity', tenant: baltimorecity, dc: wd1, site: External}
+  - {name: 'Baltimorecity', tenant: baltimorecity, dc: wd1, site: external}
+  - {name: 'Bankatfirst', tenant: bankatfirst, dc: wd1, site: ffb}
+  - {name: 'Bannerhealth', tenant: bannerhealth, dc: wd108, site: Careers}
+  - {name: 'Banner Health', tenant: bannerhealth, dc: wd108, site: careers}
+  - {name: 'Bannerhealth', tenant: bannerhealth, dc: wd108, site: sonoraquestcareers}
+  - {name: 'Barclays', tenant: barclays, dc: wd3, site: External_Career_Site_Barclays}
+  - {name: 'Barclays', tenant: barclays, dc: wd3, site: external_career_site_barclays}
+  - {name: 'Barnard', tenant: barnard, dc: wd1, site: Staff}
+  - {name: 'Barnard', tenant: barnard, dc: wd1, site: staff}
+  - {name: 'Barr', tenant: barr, dc: wd1, site: barrcareers}
+  - {name: 'Barrywehmiller', tenant: barrywehmiller, dc: wd1, site: BWCareers}
+  - {name: 'Barrywehmiller', tenant: barrywehmiller, dc: wd1, site: BWConfidential}
+  - {name: 'Barrywehmiller', tenant: barrywehmiller, dc: wd1, site: bwcareers}
+  - {name: 'Bavariannordic', tenant: bavariannordic, dc: wd103, site: bavariannordic}
+  - {name: 'Baxter', tenant: baxter, dc: wd1, site: baxter}
+  - {name: 'Bayareahospital', tenant: bayareahospital, dc: wd1, site: bay_area_hospital_external_career_site}
+  - {name: 'Baystatehealth', tenant: baystatehealth, dc: wd12, site: External_Careers}
+  - {name: 'Baystate Health Baystate Health (BH)', tenant: baystatehealth, dc: wd12, site: external_careers}
+  - {name: 'Bb', tenant: bb, dc: wd3, site: QNX}
+  - {name: 'Bb', tenant: bb, dc: wd3, site: Student}
+  - {name: 'BlackBerry', tenant: bb, dc: wd3, site: blackberry}
+  - {name: 'Bb', tenant: bb, dc: wd3, site: qnx}
+  - {name: 'Bbh', tenant: bbh, dc: wd5, site: BBH}
+  - {name: 'Brown Brothers Harriman (BBH)', tenant: bbh, dc: wd5, site: bbh}
+  - {name: 'Bb Insurance', tenant: bbinsurance, dc: wd1, site: careers}
+  - {name: 'Bbva', tenant: bbva, dc: wd3, site: BBVA}
+  - {name: 'Bbva', tenant: bbva, dc: wd3, site: bbva}
+  - {name: 'Bcbsa', tenant: bcbsa, dc: wd1, site: careers}
+  - {name: 'BCBSAZ', tenant: bcbsaz, dc: wd1, site: BCBSAZCareers}
+  - {name: 'Bcbsaz', tenant: bcbsaz, dc: wd1, site: bcbsazcareers}
+  - {name: 'Bcbsks', tenant: bcbsks, dc: wd1, site: External}
+  - {name: 'Bcbsks', tenant: bcbsks, dc: wd1, site: external}
+  - {name: 'Bcbst', tenant: bcbst, dc: wd1, site: External}
+  - {name: 'Bcbst', tenant: bcbst, dc: wd1, site: external}
+  - {name: 'Bcbswy', tenant: bcbswy, dc: wd1, site: careers}
+  - {name: 'Bci', tenant: bci, dc: wd10, site: BCI_Careers}
+  - {name: 'Bcidaho', tenant: bcidaho, dc: wd5, site: BCI}
+  - {name: 'BDC', tenant: bdc, dc: wd10, site: bdc_careers}
+  - {name: 'Bdo', tenant: bdo, dc: wd3, site: BDO}
+  - {name: 'Bdrthermea', tenant: bdrthermea, dc: wd103, site: external}
+  - {name: 'Bdx', tenant: bdx, dc: wd1, site: EXTERNAL_CAREER_SITE_USA}
+  - {name: 'Bdx', tenant: bdx, dc: wd1, site: US_EARLY_TALENT_SITE}
+  - {name: 'Bdx', tenant: bdx, dc: wd1, site: external_career_site_malaysia}
+  - {name: 'Bdx', tenant: bdx, dc: wd1, site: external_career_site_singapore}
+  - {name: 'Bdx', tenant: bdx, dc: wd1, site: external_career_site_usa}
+  - {name: 'Beigene', tenant: beigene, dc: wd5, site: beigene}
+  - {name: 'Belk', tenant: belk, dc: wd1, site: careers-corporate}
+  - {name: 'Belk', tenant: belk, dc: wd1, site: jobs-stores}
+  - {name: 'Belkin', tenant: belkin, dc: wd5, site: belkin_careers}
+  - {name: 'Belron', tenant: belron, dc: wd3, site: Safelite_Careers}
+  - {name: 'Belron Canada', tenant: belron, dc: wd3, site: belron_canada_careers}
+  - {name: 'Carglass', tenant: belron, dc: wd3, site: carglass_careers}
+  - {name: 'Safelite', tenant: belron, dc: wd3, site: safelite_careers}
+  - {name: 'Benchmark', tenant: benchmark, dc: wd1, site: pgh_careers}
+  - {name: 'Benefis', tenant: benefis, dc: wd1, site: bhs}
+  - {name: 'Berklee', tenant: berklee, dc: wd1, site: berkleecareers}
+  - {name: 'Betmgminc', tenant: betmgminc, dc: wd5, site: betmgm}
+  - {name: 'Bhs', tenant: bhs, dc: wd1, site: careers}
+  - {name: 'Bigcommerce', tenant: bigcommerce, dc: wd12, site: Commerce}
+  - {name: 'Bigcommerce', tenant: bigcommerce, dc: wd12, site: commerce}
+  - {name: 'Biibhr', tenant: biibhr, dc: wd3, site: external}
+  - {name: 'Bilh', tenant: bilh, dc: wd1, site: External}
+  - {name: 'Bilh', tenant: bilh, dc: wd1, site: external}
+  - {name: 'Biotechne', tenant: biotechne, dc: wd5, site: Biotechne}
+  - {name: 'Biotechne', tenant: biotechne, dc: wd5, site: biotechne}
+  - {name: 'Bitsight', tenant: bitsight, dc: wd1, site: bitsight}
+  - {name: 'Bjswholesaleclub', tenant: bjswholesaleclub, dc: wd1, site: BJsCareers}
+  - {name: 'BJ’s Wholesale Club', tenant: bjswholesaleclub, dc: wd1, site: bjscareers}
+  - {name: 'Blackbaud', tenant: blackbaud, dc: wd1, site: externalcareers}
+  - {name: 'Blackrock', tenant: blackrock, dc: wd1, site: BlackRock_Professional}
+  - {name: 'Blackrock', tenant: blackrock, dc: wd1, site: blackrock_professional}
+  - {name: 'Blackstone', tenant: blackstone, dc: wd1, site: Blackstone_Campus_Careers}
+  - {name: 'Blackstone', tenant: blackstone, dc: wd1, site: blackstone_campus_careers}
+  - {name: 'Blackstone', tenant: blackstone, dc: wd1, site: blackstone_careers}
+  - {name: 'Blackstone', tenant: blackstone, dc: wd1, site: bx_external_site}
+  - {name: 'Blattner Company', tenant: blattner, dc: wd5, site: blattnercompany}
+  - {name: 'Bloomberg', tenant: bloomberg, dc: wd1, site: Bloombergindustrygroup_External_Career_Site}
+  - {name: 'Bloom Energy', tenant: bloomenergy, dc: wd1, site: bloomenergycareers}
+  - {name: 'Blueorigin', tenant: blueorigin, dc: wd5, site: BlueOrigin}
+  - {name: 'Blueorigin', tenant: blueorigin, dc: wd5, site: blueorigin}
+  - {name: 'Blueowl', tenant: blueowl, dc: wd1, site: blueowl}
+  - {name: 'Bluescopenac', tenant: bluescopenac, dc: wd5, site: BNACareers}
+  - {name: 'Bluescopenac', tenant: bluescopenac, dc: wd5, site: bnacareers}
+  - {name: 'bmc', tenant: bmc, dc: wd1, site: BMC}
+  - {name: 'Bmo', tenant: bmo, dc: wd3, site: Campus}
+  - {name: 'Bmo', tenant: bmo, dc: wd3, site: External}
+  - {name: 'Bmo', tenant: bmo, dc: wd3, site: Privileged}
+  - {name: 'BMO', tenant: bmo, dc: wd3, site: external}
+  - {name: 'Bnl', tenant: bnl, dc: wd1, site: externa}
+  - {name: 'Boarshead', tenant: boarshead, dc: wd1, site: BHC}
+  - {name: 'Boars Head Brand', tenant: boarshead, dc: wd1, site: bhc}
+  - {name: 'Bobs Discount Furniture', tenant: bobsdf, dc: wd1, site: bobs_careers}
+  - {name: 'Boeing', tenant: boeing, dc: wd1, site: EXTERNAL_CAREERS}
+  - {name: 'Boeing', tenant: boeing, dc: wd1, site: INTERN}
+  - {name: 'Boeing', tenant: boeing, dc: wd1, site: external_careers}
+  - {name: 'Boeing', tenant: boeing, dc: wd1, site: external_subsidiary}
+  - {name: 'Borgwarner', tenant: borgwarner, dc: wd5, site: BorgWarner_Careers}
+  - {name: 'BorgWarner', tenant: borgwarner, dc: wd5, site: borgwarner_careers}
+  - {name: 'Boseallaboutme', tenant: boseallaboutme, dc: wd503, site: Bose_Careers}
+  - {name: 'Boseallaboutme', tenant: boseallaboutme, dc: wd503, site: bose_careers}
+  - {name: 'Boydcorp', tenant: boydcorp, dc: wd12, site: Boyd_Careers}
+  - {name: 'Boydgroup', tenant: boydgroup, dc: wd1, site: boydcareers}
+  - {name: 'Boys Town', tenant: boystown, dc: wd1, site: boystowncareers}
+  - {name: 'Bpinternational', tenant: bpinternational, dc: wd3, site: bpCareers}
+  - {name: 'Bpinternational', tenant: bpinternational, dc: wd3, site: bpEarlyCareers}
+  - {name: 'Bpinternational', tenant: bpinternational, dc: wd3, site: bpPrivateExternalCareersSite}
+  - {name: 'Bracco', tenant: bracco, dc: wd103, site: BraccoCareers}
+  - {name: 'Brambles', tenant: brambles, dc: wd5, site: Brambles_Careers}
+  - {name: 'CHEP Brambles', tenant: brambles, dc: wd5, site: brambles_careers}
+  - {name: 'Brandeis', tenant: brandeis, dc: wd5, site: Jobs}
+  - {name: 'Brandeis', tenant: brandeis, dc: wd5, site: jobs}
+  - {name: 'Braunintertec', tenant: braunintertec, dc: wd5, site: brauninterteccareers}
+  - {name: 'Brenntag', tenant: brenntag, dc: wd3, site: brenntag_jobs}
+  - {name: 'Brevan Howard Investment Management', tenant: brevanhoward, dc: wd3, site: bh_externalcareers}
+  - {name: 'Bridgestone', tenant: bridgestone, dc: wd5, site: External}
+  - {name: 'Bridgestone', tenant: bridgestone, dc: wd5, site: external}
+  - {name: 'Brighthorizons', tenant: brighthorizons, dc: wd5, site: external-northamerica}
+  - {name: 'Brightli', tenant: brightli, dc: wd5, site: brightlitalent}
+  - {name: 'Bristolmyerssquibb', tenant: bristolmyerssquibb, dc: wd5, site: bms}
+  - {name: 'Bristow', tenant: bristow, dc: wd1, site: careers}
+  - {name: 'Broadcom', tenant: broadcom, dc: wd1, site: external_career}
+  - {name: 'Broadridge', tenant: broadridge, dc: wd5, site: careers}
+  - {name: 'Broadviewfcu', tenant: broadviewfcu, dc: wd1, site: broadviewfcucareers}
+  - {name: 'Brock University', tenant: brocku, dc: wd3, site: brocku_careers}
+  - {name: 'Brookfield', tenant: brookfield, dc: wd5, site: bpandc}
+  - {name: 'Brookfield Asset Management', tenant: brookfield, dc: wd5, site: brookfield}
+  - {name: 'Brookfield', tenant: brookfield, dc: wd5, site: brookfieldprivate}
+  - {name: 'Brookfield Properties', tenant: brookfield, dc: wd5, site: brookfieldproperties}
+  - {name: 'Brooklyn Public Library', tenant: brooklynpubliclibrary, dc: wd12, site: bpl}
+  - {name: 'Brooksauto', tenant: brooksauto, dc: wd1, site: Brooks_External_Site}
+  - {name: 'Brooksauto', tenant: brooksauto, dc: wd1, site: brooks_external_site}
+  - {name: 'Broward College', tenant: browardcollege, dc: wd5, site: ft}
+  - {name: 'Broward College', tenant: browardcollege, dc: wd5, site: pt}
+  - {name: 'Brown', tenant: brown, dc: wd5, site: staff-careers-brown}
+  - {name: 'Brown Advisory', tenant: brownadvisory, dc: wd1, site: brown}
+  - {name: 'Brownhealth', tenant: brownhealth, dc: wd12, site: External_Careers}
+  - {name: 'Brunswick', tenant: brunswick, dc: wd1, site: search}
+  - {name: 'Btisolutions', tenant: btisolutions, dc: wd12, site: External}
+  - {name: 'Bti Solutions', tenant: btisolutions, dc: wd12, site: external}
+  - {name: 'Bydeluxe', tenant: bydeluxe, dc: wd5, site: Deluxe_External}
+  - {name: 'Deluxe', tenant: bydeluxe, dc: wd5, site: deluxe_external}
+  - {name: 'BYU', tenant: byu, dc: wd1, site: byu-careers}
+  - {name: 'Caa', tenant: caa, dc: wd1, site: Careers}
+  - {name: 'Creative Artists Agency (CAA)', tenant: caa, dc: wd1, site: careers}
+  - {name: 'Cableone', tenant: cableone, dc: wd1, site: Cable_One_External_Careers}
+  - {name: 'Cable One', tenant: cableone, dc: wd1, site: cable_one_external_careers}
+  - {name: 'Caci', tenant: caci, dc: wd1, site: External}
+  - {name: 'CACI', tenant: caci, dc: wd1, site: external}
+  - {name: 'Cadence', tenant: cadence, dc: wd1, site: External_Careers}
+  - {name: 'Cadence', tenant: cadence, dc: wd1, site: OpenEye_Careers}
+  - {name: 'Cadence', tenant: cadence, dc: wd1, site: Univ_Careers}
+  - {name: 'Cadence', tenant: cadence, dc: wd1, site: University_Talent}
+  - {name: 'Cadence', tenant: cadence, dc: wd1, site: University_Talent_Intern}
+  - {name: 'Cadence', tenant: cadence, dc: wd1, site: external_careers}
+  - {name: 'Cae', tenant: cae, dc: wd3, site: career}
+  - {name: 'CAI', tenant: cai, dc: wd5, site: computer_aid}
+  - {name: 'Calibercollision', tenant: calibercollision, dc: wd1, site: caliber}
+  - {name: 'Protech Automotive Solutions', tenant: calibercollision, dc: wd1, site: protech}
+  - {name: 'Calistacorp', tenant: calistacorp, dc: wd1, site: calista}
+  - {name: 'Perceptive', tenant: calyx, dc: wd1, site: perceptive}
+  - {name: 'Camaco', tenant: camacollc, dc: wd108, site: camaco}
+  - {name: 'Cambium Learning® Group', tenant: cambiumlearning, dc: wd1, site: camb}
+  - {name: 'Cambium Learning® Group', tenant: cambiumlearning, dc: wd1, site: opportunities}
+  - {name: 'Cambria', tenant: cambria, dc: wd1, site: cambria_careers}
+  - {name: 'Cambridgeassociates', tenant: cambridgeassociates, dc: wd5, site: Cambridge_Associates}
+  - {name: 'Cambridgeassociates', tenant: cambridgeassociates, dc: wd5, site: Handshake}
+  - {name: 'Cambridgeassociates', tenant: cambridgeassociates, dc: wd5, site: cambridge_associates}
+  - {name: 'Campbellsoup', tenant: campbellsoup, dc: wd5, site: externalcareers_globalsite}
+  - {name: 'Canada Goose', tenant: canadagoose, dc: wd3, site: canadagoosecareers}
+  - {name: 'Canadiansolar', tenant: canadiansolar, dc: wd5, site: CanadianSolar}
+  - {name: 'Canadiantirecorporation', tenant: canadiantirecorporation, dc: wd3, site: Enterprise_External_Careers_Site}
+  - {name: 'Canadiantirecorporation', tenant: canadiantirecorporation, dc: wd3, site: enterprise_external_careers_site}
+  - {name: 'Cancerresearchuk', tenant: cancerresearchuk, dc: wd3, site: external_careers}
+  - {name: 'Candescent', tenant: candescent, dc: wd501, site: Hiring}
+  - {name: 'Cfv', tenant: capefearvalley, dc: wd1, site: cfv}
+  - {name: 'Capital Group', tenant: capgroup, dc: wd1, site: capitalgroupcareers}
+  - {name: 'Capita', tenant: capita, dc: wd3, site: capitaglobal}
+  - {name: 'CapitaLand', tenant: capitaland, dc: wd3, site: capitalandgroup}
+  - {name: 'CapitaLand Investment', tenant: capitaland, dc: wd3, site: capitalandinvestmentcareers}
+  - {name: 'Capitalhealth', tenant: capitalhealth, dc: wd1, site: CapitalHealthCareers}
+  - {name: 'Capitalhealth', tenant: capitalhealth, dc: wd1, site: capitalhealthcareers}
+  - {name: 'Capitalpower', tenant: capitalpower, dc: wd10, site: External}
+  - {name: 'Established in 1996, Jimmy Choo', tenant: capri, dc: wd1, site: jimmychoocareers}
+  - {name: 'Michael Kors', tenant: capri, dc: wd1, site: michael_kors}
+  - {name: 'Versace', tenant: capri, dc: wd1, site: versace}
+  - {name: 'Cardinalhealth', tenant: cardinalhealth, dc: wd1, site: EXT}
+  - {name: 'Cardinalhealth', tenant: cardinalhealth, dc: wd1, site: ext}
+  - {name: 'Care Corner', tenant: carecorner, dc: wd102, site: ccs}
+  - {name: 'Carhartt WIP', tenant: carharttwip, dc: wd103, site: carharttwip}
+  - {name: 'Carilion Clinic', tenant: carilionclinic, dc: wd12, site: external_careers}
+  - {name: 'Carmax', tenant: carmax, dc: wd1, site: external}
+  - {name: 'Carrier', tenant: carrier, dc: wd5, site: jobs}
+  - {name: 'Cat', tenant: cat, dc: wd5, site: CaterpillarCareers}
+  - {name: 'Cat', tenant: cat, dc: wd5, site: SolarTurbines}
+  - {name: 'Cat', tenant: cat, dc: wd5, site: caterpillarcareers}
+  - {name: 'Cat', tenant: cat, dc: wd5, site: solarturbines}
+  - {name: 'Catalent, Inc', tenant: catalent, dc: wd1, site: external}
+  - {name: 'Catalinas success', tenant: catalina, dc: wd1, site: catalina}
+  - {name: 'Cba', tenant: cba, dc: wd3, site: private_ad}
+  - {name: 'Cbcrc', tenant: cbcrc, dc: wd3, site: CBC_Radio-Canada_Jobs}
+  - {name: 'Cboe', tenant: cboe, dc: wd1, site: External_Career_CBOE}
+  - {name: 'Cboe', tenant: cboe, dc: wd1, site: external_career_cboe}
+  - {name: 'Cc', tenant: cc, dc: wd3, site: ChanelCareers}
+  - {name: 'Chanel', tenant: cc, dc: wd3, site: chanelcareers}
+  - {name: 'Ccf', tenant: ccf, dc: wd1, site: ClevelandClinicCareers}
+  - {name: 'Cleveland Clinic', tenant: ccf, dc: wd1, site: clevelandcliniccareers}
+  - {name: 'Ccrcca', tenant: ccrcca, dc: wd1, site: careers}
+  - {name: 'CDK', tenant: cdk, dc: wd1, site: cdk}
+  - {name: 'Cdpq', tenant: cdpq, dc: wd10, site: cdpq}
+  - {name: 'Cec', tenant: cecentertainment, dc: wd5, site: cec_careers}
+  - {name: 'Ceh', tenant: ceh, dc: wd3, site: ceh_careers}
+  - {name: 'Celltrion Global Website Celltrion Group', tenant: celltrionhealthcare, dc: wd3, site: celltrionglobal}
+  - {name: 'Cengage', tenant: cengage, dc: wd5, site: CengageNorthAmericaCareers}
+  - {name: 'North America', tenant: cengage, dc: wd5, site: cengagenorthamericacareers}
+  - {name: 'Cenhud', tenant: cenhud, dc: wd5, site: cenhud}
+  - {name: 'Centene', tenant: centene, dc: wd5, site: Centene_External}
+  - {name: 'Centene', tenant: centene, dc: wd5, site: centene_external}
+  - {name: 'Centific', tenant: centific, dc: wd1, site: Centific_Global}
+  - {name: 'Centific', tenant: centific, dc: wd1, site: centific_global}
+  - {name: 'Centrica', tenant: centrica, dc: wd3, site: Centrica}
+  - {name: 'Centrica', tenant: centrica, dc: wd3, site: centrica}
+  - {name: 'Cerberus', tenant: cerberus, dc: wd1, site: cerberuscareers}
+  - {name: 'Cerence', tenant: cerence, dc: wd5, site: Cerence}
+  - {name: 'Ceritypartners', tenant: ceritypartners, dc: wd12, site: ceritypartnerscareers}
+  - {name: 'Cfindustries', tenant: cfindustries, dc: wd1, site: careers}
+  - {name: 'Buc-ees', tenant: cfr, dc: wd5, site: buc-careers}
+  - {name: 'Cgg', tenant: cgg, dc: wd103, site: viridiencareers}
+  - {name: 'CGM', tenant: cgm, dc: wd3, site: cgm}
+  - {name: 'Ch', tenant: ch, dc: wd3, site: honda_canada}
+  - {name: 'Chamberlain', tenant: chamberlain, dc: wd1, site: Chamberlain_Group}
+  - {name: 'Chamberlain Group (CG)', tenant: chamberlain, dc: wd1, site: chamberlain_group}
+  - {name: 'ChampionX', tenant: championx, dc: wd1, site: championx_external}
+  - {name: 'CHARLES & KEITH Group', tenant: charleskeith, dc: wd3, site: external}
+  - {name: 'Charlottenc', tenant: charlottenc, dc: wd12, site: citgov}
+  - {name: 'Chas Health', tenant: chas, dc: wd1, site: CHASHealth}
+  - {name: 'Chemours', tenant: chemours, dc: wd103, site: Chemours}
+  - {name: 'Every day Chemours', tenant: chemours, dc: wd103, site: chemours}
+  - {name: 'CHEO', tenant: cheo, dc: wd10, site: external_site}
+  - {name: 'Sjc', tenant: chess, dc: wd1, site: sjc}
+  - {name: 'CCPS', tenant: chesterfield, dc: wd5, site: ccps1}
+  - {name: 'Chevron', tenant: chevron, dc: wd5, site: University}
+  - {name: 'Chevron Corporation', tenant: chevron, dc: wd5, site: jobs}
+  - {name: 'Tcp 02', tenant: childrensplace, dc: wd1, site: tcp02}
+  - {name: 'Chipotle', tenant: chipotle, dc: wd5, site: ChipotleCareers}
+  - {name: 'Chipotle', tenant: chipotle, dc: wd5, site: chipotlecareers}
+  - {name: 'Choa', tenant: choa, dc: wd12, site: externalcareers}
+  - {name: 'Choicehotels', tenant: choicehotels, dc: wd5, site: External}
+  - {name: 'Choicehotels', tenant: choicehotels, dc: wd5, site: external}
+  - {name: 'Christie’s', tenant: christies, dc: wd3, site: christies_careers}
+  - {name: 'Chrobinson', tenant: chrobinson, dc: wd5, site: CHRobinson}
+  - {name: 'Chrobinson', tenant: chrobinson, dc: wd5, site: chrobinson}
+  - {name: 'Cibc', tenant: cibc, dc: wd3, site: campus}
+  - {name: 'CIBC', tenant: cibc, dc: wd3, site: search}
+  - {name: 'Ciena', tenant: ciena, dc: wd5, site: Careers}
+  - {name: 'Ciena', tenant: ciena, dc: wd5, site: careers}
+  - {name: 'Cigna Group', tenant: cigna, dc: wd5, site: cignacareers}
+  - {name: 'Cincinnati Children’s', tenant: cincinnatichildrens, dc: wd5, site: careersatcincinnatichildrens}
+  - {name: 'Cineplex', tenant: cineplex, dc: wd3, site: Cineplex}
+  - {name: 'Cineplex', tenant: cineplex, dc: wd3, site: cineplex}
+  - {name: 'Circlek', tenant: circlek, dc: wd3, site: circlekstorejobs}
+  - {name: 'Circles', tenant: circles, dc: wd103, site: circles}
+  - {name: 'City of Richland', tenant: cirichlandwa, dc: wd12, site: cor}
+  - {name: 'Cisecurity', tenant: cisecurity, dc: wd1, site: CIS_External_Career_Site}
+  - {name: 'CIS', tenant: cisecurity, dc: wd1, site: cis_external_career_site}
+  - {name: 'Cisive', tenant: cisive, dc: wd108, site: Cisive}
+  - {name: 'Citi', tenant: citi, dc: wd5, site: 2}
+  - {name: 'Citi', tenant: citi, dc: wd5, site: Citi_Early_Careers_Events_Site}
+  - {name: 'Citjpl', tenant: citjpl, dc: wd5, site: Jobs}
+  - {name: 'JPL', tenant: citjpl, dc: wd5, site: jobs}
+  - {name: 'Cityblock Health', tenant: cityblockhealth, dc: wd1, site: cityblockexternalcareersite}
+  - {name: 'City of Gainesville', tenant: cityofgainesville, dc: wd5, site: careers}
+  - {name: 'Clarioclinical', tenant: clarioclinical, dc: wd1, site: clarioclinical_careers}
+  - {name: 'Clarios', tenant: clarios, dc: wd5, site: clarioscareers}
+  - {name: 'Clarivate', tenant: clarivate, dc: wd3, site: Clarivate_Careers}
+  - {name: 'Clarivate', tenant: clarivate, dc: wd3, site: clarivate_careers}
+  - {name: 'Clarivate', tenant: clarivate, dc: wd3, site: jobs}
+  - {name: 'Clearesult', tenant: clearesult, dc: wd1, site: CLEAResult_External_Careers}
+  - {name: 'Clearesult', tenant: clearesult, dc: wd1, site: clearesult_external_careers}
+  - {name: 'Clearskyhealth', tenant: clearskyhealth, dc: wd1, site: csh}
+  - {name: 'Clearwateranalytics', tenant: clearwateranalytics, dc: wd1, site: Clearwater_Analytics_Careers}
+  - {name: 'Clearwateranalytics', tenant: clearwateranalytics, dc: wd1, site: clearwater_analytics_careers}
+  - {name: 'Clevelandmetro Schools', tenant: clevelandmetroschools, dc: wd1, site: jobs}
+  - {name: 'Clio', tenant: clio, dc: wd3, site: ClioCareerSite}
+  - {name: 'Clio', tenant: clio, dc: wd3, site: cliocareersite}
+  - {name: 'Cloud Imperium Games', tenant: cloudimperiumgames, dc: wd503, site: cig_global_careers}
+  - {name: 'Clydeco', tenant: clydeco, dc: wd103, site: clydecocareers}
+  - {name: 'Cmcmarkets', tenant: cmcmarkets, dc: wd3, site: CMC_Markets_Careers}
+  - {name: 'CMC Markets', tenant: cmcmarkets, dc: wd3, site: cmc_markets_careers}
+  - {name: 'Cmegroup', tenant: cmegroup, dc: wd1, site: cme_careers}
+  - {name: 'Cmu', tenant: cmu, dc: wd5, site: CMU}
+  - {name: 'Cmu', tenant: cmu, dc: wd5, site: cmu}
+  - {name: 'Cncbinternational', tenant: cncbinternational, dc: wd3, site: cncbiexternalcareersite}
+  - {name: 'Cnx', tenant: cnx, dc: wd1, site: external_global}
+  - {name: 'Cog', tenant: cog, dc: wd5, site: external_prod}
+  - {name: 'Cogeco', tenant: cogeco, dc: wd3, site: Cogeco_Careers}
+  - {name: 'Cogeco', tenant: cogeco, dc: wd3, site: cogeco_careers}
+  - {name: 'Cognex', tenant: cognex, dc: wd1, site: External_Career_Site}
+  - {name: 'Cognex', tenant: cognex, dc: wd1, site: external_career_site}
+  - {name: 'Cohesity', tenant: cohesity, dc: wd5, site: Cohesity_Careers}
+  - {name: 'Cohesity', tenant: cohesity, dc: wd5, site: cohesity_careers}
+  - {name: 'Coca-Cola Company', tenant: coke, dc: wd1, site: coca-cola-careers}
+  - {name: 'Collectors', tenant: collectorsuniverse, dc: wd1, site: collectors}
+  - {name: 'Colliers', tenant: colliers, dc: wd3, site: Colliers-External-Career-Site}
+  - {name: 'Colliers', tenant: colliers, dc: wd3, site: colliers-external-career-site}
+  - {name: 'Collin', tenant: collin, dc: wd1, site: ExternalStaffCareerSite}
+  - {name: 'Columbiasportswearcompany', tenant: columbiasportswearcompany, dc: wd5, site: Columbia_Career_Site}
+  - {name: 'Columbia', tenant: columbiasportswearcompany, dc: wd5, site: columbia_career_site}
+  - {name: 'Comfortsystemsusa', tenant: comfortsystemsusa, dc: wd1, site: Corpcareers}
+  - {name: 'Comfortsystemsusa', tenant: comfortsystemsusa, dc: wd1, site: amteckcareers}
+  - {name: 'Comscore', tenant: comscore, dc: wd5, site: External}
+  - {name: 'Comscore', tenant: comscore, dc: wd5, site: external}
+  - {name: 'Conagrabrands', tenant: conagrabrands, dc: wd1, site: Careers_US}
+  - {name: 'Condenast', tenant: condenast, dc: wd5, site: CondeCareers}
+  - {name: 'Condé Nast', tenant: condenast, dc: wd5, site: condecareers}
+  - {name: 'ZT Systems', tenant: connect, dc: wd1, site: ztsystemscareers}
+  - {name: 'Connexus Credit Union', tenant: connexuscu, dc: wd1, site: connexuscareers}
+  - {name: 'Connor Group', tenant: connorgp, dc: wd12, site: cg}
+  - {name: 'Constructor University', tenant: constructoruniversity, dc: wd103, site: careers}
+  - {name: 'Convatec', tenant: convatec, dc: wd1, site: convatec}
+  - {name: 'Cooperstandard', tenant: cooperstandard, dc: wd1, site: CooperStandard}
+  - {name: 'Coorstek', tenant: coorstek, dc: wd1, site: CoorsTekCareers}
+  - {name: 'Copart', tenant: copart, dc: wd12, site: Copart}
+  - {name: 'Copart', tenant: copart, dc: wd12, site: copart}
+  - {name: 'Copeland', tenant: copeland, dc: wd5, site: copeland_external_careers_page}
+  - {name: 'Coreandmain', tenant: coreandmain, dc: wd1, site: coreandmain}
+  - {name: 'Cornell University', tenant: cornell, dc: wd1, site: cornellcareerpage}
+  - {name: 'Cornell', tenant: cornell, dc: wd1, site: cornellpositions}
+  - {name: 'Cornerstone Research', tenant: cornerstone, dc: wd501, site: cornerstoneresearch_careers}
+  - {name: 'Corpay', tenant: corpay, dc: wd103, site: ext_001}
+  - {name: 'Corteva', tenant: corteva, dc: wd5, site: corteva}
+  - {name: 'Costar', tenant: costar, dc: wd1, site: CoStarCareers}
+  - {name: 'Costar', tenant: costar, dc: wd1, site: costarcareers}
+  - {name: 'Covestro', tenant: covestro, dc: wd3, site: cov_external}
+  - {name: 'Covetrus', tenant: covetrus, dc: wd5, site: covetruscareers}
+  - {name: 'Cox', tenant: cox, dc: wd1, site: Cox_External_Career_Site_1}
+  - {name: 'Cox', tenant: cox, dc: wd1, site: cox_external_career_site_1}
+  - {name: 'Coxhealth', tenant: coxhealth, dc: wd5, site: CoxHealth_External}
+  - {name: 'Cox Health', tenant: coxhealth, dc: wd5, site: coxhealth_external}
+  - {name: 'Cerebral Palsy Alliance', tenant: cpalliance, dc: wd3, site: cerebralpalsyalliance}
+  - {name: 'Cranecompany', tenant: cranecompany, dc: wd5, site: Careers}
+  - {name: 'Crane', tenant: cranecompany, dc: wd5, site: careers}
+  - {name: 'Crate & Barrel | CB2', tenant: crateandbarrel, dc: wd1, site: cbh}
+  - {name: 'Creditacceptance', tenant: creditacceptance, dc: wd5, site: Credit_Acceptance}
+  - {name: 'Credit Acceptance', tenant: creditacceptance, dc: wd5, site: credit_acceptance}
+  - {name: 'Concord Hospital (CH)', tenant: crhc, dc: wd1, site: concord_careers}
+  - {name: 'Criteo', tenant: criteo, dc: wd3, site: Criteo_Career_Site}
+  - {name: 'Crosscountrymortgage', tenant: crosscountrymortgage, dc: wd1, site: CCMCareers}
+  - {name: 'CrowdStrike', tenant: crowdstrike, dc: wd5, site: crowdstrikecareers}
+  - {name: 'Government Commercial Agency', tenant: crowncommercialservice, dc: wd3, site: CCS_Careers}
+  - {name: 'Crystalsugar', tenant: crystalsugar, dc: wd501, site: crystalcareers}
+  - {name: 'CSA Group', tenant: csagroup, dc: wd3, site: csagroup}
+  - {name: 'Csgi', tenant: csgi, dc: wd5, site: csgcareers}
+  - {name: 'Csiweb', tenant: csiweb, dc: wd1, site: CSI_Careers}
+  - {name: 'Csl', tenant: csl, dc: wd1, site: CSL_External}
+  - {name: 'CSL', tenant: csl, dc: wd1, site: csl_external}
+  - {name: 'Cs', tenant: cswg, dc: wd1, site: cs_careers}
+  - {name: 'Cubic', tenant: cubic, dc: wd1, site: cubic_USA_careers}
+  - {name: 'Cubic', tenant: cubic, dc: wd1, site: cubic_usa_careers}
+  - {name: 'Cgc', tenant: cumminggroup, dc: wd1, site: cgc}
+  - {name: 'Curemd', tenant: curemd, dc: wd1, site: curemd}
+  - {name: 'Curtisswright', tenant: curtisswright, dc: wd1, site: cw_external_career_site}
+  - {name: 'Customersbank', tenant: customersbank, dc: wd1, site: customersbankcareers}
+  - {name: 'Cvshealth', tenant: cvshealth, dc: wd1, site: CVS_Health_Careers}
+  - {name: 'Cvshealth', tenant: cvshealth, dc: wd1, site: cvs_health_careers}
+  - {name: 'Cw', tenant: cw, dc: wd1, site: external}
+  - {name: 'cwi', tenant: cwi, dc: wd1, site: CW_Careers}
+  - {name: 'Daikinapplied', tenant: daikinapplied, dc: wd1, site: Daikin-Careers}
+  - {name: 'DPC', tenant: dairynet, dc: wd1, site: DPCcareers}
+  - {name: 'Dallascollege', tenant: dallascollege, dc: wd1, site: Dallas_College_Careers}
+  - {name: 'Dallas College', tenant: dallascollege, dc: wd1, site: dallas_college_careers}
+  - {name: 'Danaher', tenant: danaher, dc: wd1, site: DanaherJobs}
+  - {name: 'Danaher', tenant: danaher, dc: wd1, site: danaherjobs}
+  - {name: 'Darktrace', tenant: darktrace, dc: wd3, site: DarktaceExternal}
+  - {name: 'Dart', tenant: dart, dc: wd1, site: dart}
+  - {name: 'Dataminr', tenant: dataminr, dc: wd12, site: Dataminr}
+  - {name: 'Jobs at Dataminr', tenant: dataminr, dc: wd12, site: dataminr}
+  - {name: 'Datarobot', tenant: datarobot, dc: wd1, site: DataRobot_External_Careers}
+  - {name: 'DataRobot', tenant: datarobot, dc: wd1, site: datarobot_external_careers}
+  - {name: 'Datasite global recruitment page. This', tenant: datasite, dc: wd1, site: datasite}
+  - {name: 'Davita', tenant: davita, dc: wd1, site: DKC_External}
+  - {name: 'Davita', tenant: davita, dc: wd1, site: dkc_external}
+  - {name: 'DayOne', tenant: dayone, dc: wd102, site: external}
+  - {name: 'Db', tenant: db, dc: wd3, site: DBWebsite}
+  - {name: 'Db', tenant: db, dc: wd3, site: dbwebsite}
+  - {name: 'DWS', tenant: db, dc: wd3, site: dwswebsite}
+  - {name: 'Dcsd', tenant: dcsd, dc: wd5, site: dcsd}
+  - {name: 'Dealertire', tenant: dealertire, dc: wd5, site: AMI}
+  - {name: 'Deckers', tenant: deckers, dc: wd5, site: Deckers}
+  - {name: 'Deckers', tenant: deckers, dc: wd5, site: deckers}
+  - {name: 'Dedalus Group', tenant: dedalus, dc: wd3, site: external}
+  - {name: 'Deluxe', tenant: deluxe, dc: wd5, site: USA_CAN}
+  - {name: 'Dentalcorp', tenant: dentalcorp, dc: wd3, site: dentalcorp}
+  - {name: 'Dentsuaegis', tenant: dentsuaegis, dc: wd3, site: DAN_GLOBAL}
+  - {name: 'Dentsuaegis', tenant: dentsuaegis, dc: wd3, site: dan_global}
+  - {name: 'Denver', tenant: denver, dc: wd1, site: CCD-denver-denvergov-CSC_Jobs-Civil_service_jobs-Police_Jobs-Fire_Jobs}
+  - {name: 'Denver', tenant: denver, dc: wd1, site: ccd-denver-denvergov-csc_jobs-civil_service_jobs-police_jobs-fire_jobs}
+  - {name: 'Denverhealth', tenant: denverhealth, dc: wd1, site: DHHA-Main}
+  - {name: 'Denverhealth', tenant: denverhealth, dc: wd1, site: dhha-main}
+  - {name: 'Deriva Energy', tenant: derivaenergy, dc: wd501, site: careers}
+  - {name: 'Desjardins', tenant: desjardins, dc: wd10, site: Desjardins}
+  - {name: 'Devoted', tenant: devoted, dc: wd1, site: devoted}
+  - {name: 'Dexcom', tenant: dexcom, dc: wd1, site: Dexcom}
+  - {name: 'Dexcom', tenant: dexcom, dc: wd1, site: dexcom}
+  - {name: 'Dfwairport', tenant: dfwairport, dc: wd5, site: External}
+  - {name: 'DFW', tenant: dfwairport, dc: wd5, site: external}
+  - {name: 'Diageo', tenant: diageo, dc: wd3, site: diageo_careers}
+  - {name: 'Diamondbackenergy', tenant: diamondbackenergy, dc: wd12, site: DBE}
+  - {name: 'Diamondback Energy', tenant: diamondbackenergy, dc: wd12, site: dbe}
+  - {name: 'DICKS Sporting Goods', tenant: dickssportinggoods, dc: wd1, site: DSG}
+  - {name: 'DigiKey', tenant: digikey, dc: wd5, site: digi-key}
+  - {name: 'Dimensional', tenant: dimensional, dc: wd5, site: dfa_careers}
+  - {name: 'Diptyque', tenant: diptyqueparis, dc: wd103, site: diptyquecareers}
+  - {name: 'Directsupply', tenant: directsupply, dc: wd501, site: direct-supply-careers}
+  - {name: 'Discovery Land Company', tenant: discoverylandco, dc: wd5, site: dlc}
+  - {name: 'Disney', tenant: disney, dc: wd5, site: disneycareer}
+  - {name: 'Disney', tenant: disney, dc: wd5, site: disneycareerdc}
+  - {name: 'DNOW', tenant: distributionnow, dc: wd5, site: dnow_careers}
+  - {name: 'Djeholdings', tenant: djeholdings, dc: wd5, site: edelman-careers-e200}
+  - {name: 'DLA Piper', tenant: dlapiper, dc: wd1, site: dlapiper}
+  - {name: 'DMA', tenant: dmainc, dc: wd5, site: dma}
+  - {name: 'Dodgeandcox', tenant: dodgeandcox, dc: wd5, site: dodgecox}
+  - {name: 'Dollartree', tenant: dollartree, dc: wd5, site: dollartreeus}
+  - {name: 'Doterra', tenant: doterra, dc: wd1, site: doTERRACareers}
+  - {name: 'Dow', tenant: dow, dc: wd1, site: ExternalCareers}
+  - {name: 'Dow', tenant: dow, dc: wd1, site: externalcareers}
+  - {name: 'Dowjones', tenant: dowjones, dc: wd1, site: New_York_Post_Careers}
+  - {name: 'New York Post', tenant: dowjones, dc: wd1, site: new_york_post_careers}
+  - {name: 'News Corp', tenant: dowjones, dc: wd1, site: news_corp_careers}
+  - {name: 'Draftkings', tenant: draftkings, dc: wd1, site: Employee_Referral_Portal}
+  - {name: 'DraftKings', tenant: draftkings, dc: wd1, site: draftkings}
+  - {name: 'Draper', tenant: draper, dc: wd5, site: Draper_Careers}
+  - {name: 'Draper', tenant: draper, dc: wd5, site: draper_careers}
+  - {name: 'Driscolls', tenant: driscolls, dc: wd5, site: driscolls}
+  - {name: 'Dssmith', tenant: dssmith, dc: wd3, site: careers}
+  - {name: 'DTN', tenant: dtn, dc: wd1, site: dtn_careers}
+  - {name: 'Dtna', tenant: dtna, dc: wd5, site: DTNA_external}
+  - {name: 'Dtna', tenant: dtna, dc: wd5, site: dtna_affiliate}
+  - {name: 'Dtna', tenant: dtna, dc: wd5, site: dtna_external}
+  - {name: 'Values and Culture Working at DuBois', tenant: duboischemicals, dc: wd1, site: external}
+  - {name: 'Dukeenergy', tenant: dukeenergy, dc: wd1, site: search}
+  - {name: 'Dupont', tenant: dupont, dc: wd5, site: jobs}
+  - {name: 'Dxctechnology', tenant: dxctechnology, dc: wd1, site: dxcjobs}
+  - {name: 'Dyson', tenant: dyson, dc: wd3, site: dyson_careers}
+  - {name: 'Easterseals NH & VT', tenant: easterseals, dc: wd5, site: ESNH_VTcareers}
+  - {name: 'Easyservice', tenant: easyservice, dc: wd5, site: bonsecourscareers}
+  - {name: 'Easyservice', tenant: easyservice, dc: wd5, site: mercyhealthcareers}
+  - {name: 'Ebay', tenant: ebay, dc: wd5, site: apply}
+  - {name: 'Ebad', tenant: ebi, dc: wd5, site: ebadcareers}
+  - {name: 'Ech', tenant: ech, dc: wd5, site: ech}
+  - {name: 'Ecolab', tenant: ecolab, dc: wd1, site: ecolab_external}
+  - {name: 'Ecoworld', tenant: ecoworld, dc: wd3, site: careers}
+  - {name: 'Edftrading', tenant: edftrading, dc: wd1, site: EDFTrading}
+  - {name: 'Edwards Lifesciences', tenant: edwards, dc: wd5, site: edwardscareers}
+  - {name: 'Eisneramper', tenant: eisneramper, dc: wd1, site: EisnerAmperEarlyCareers}
+  - {name: 'EisnerAmper', tenant: eisneramper, dc: wd1, site: eisneramperearlycareers}
+  - {name: 'Elanco', tenant: elanco, dc: wd5, site: External_Career}
+  - {name: 'Elanco', tenant: elanco, dc: wd5, site: external_career}
+  - {name: 'Electrolux Group', tenant: electrolux, dc: wd3, site: electroluxcareersite}
+  - {name: 'Elekta', tenant: elekta, dc: wd3, site: Elekta_Careers}
+  - {name: 'Elekta', tenant: elekta, dc: wd3, site: elekta_careers}
+  - {name: 'Elementfleet', tenant: elementfleet, dc: wd3, site: External_Career_Site}
+  - {name: 'Elementfleet', tenant: elementfleet, dc: wd3, site: external_career_site}
+  - {name: 'Elevancehealth', tenant: elevancehealth, dc: wd1, site: ANT}
+  - {name: 'Elevance Health', tenant: elevancehealth, dc: wd1, site: ant}
+  - {name: 'ElringKlinger', tenant: elringklinger, dc: wd3, site: external}
+  - {name: 'Embecta', tenant: embecta, dc: wd1, site: embectacareers}
+  - {name: 'Embryriddle', tenant: embryriddle, dc: wd1, site: External}
+  - {name: 'Embryriddle', tenant: embryriddle, dc: wd1, site: external}
+  - {name: 'EMC', tenant: emcins, dc: wd5, site: EMC_Careers}
+  - {name: 'Staff', tenant: emerson, dc: wd5, site: Emerson_College_Staff}
+  - {name: 'Emery Sapp & Sons, Inc. (ESS)', tenant: emerysapp, dc: wd501, site: ess}
+  - {name: 'Enagas', tenant: enagas, dc: wd3, site: portal_externo}
+  - {name: 'Enbridge', tenant: enbridge, dc: wd3, site: enbridge_careers}
+  - {name: 'Encore', tenant: encore, dc: wd1, site: confidential}
+  - {name: 'Encore', tenant: encore, dc: wd1, site: externalnew}
+  - {name: 'Endo', tenant: endo, dc: wd1, site: External}
+  - {name: 'Endurance', tenant: endurance, dc: wd103, site: SompoInternational}
+  - {name: 'Eng', tenant: eng, dc: wd3, site: externalcareers}
+  - {name: 'Enovis', tenant: enovis, dc: wd5, site: enovis}
+  - {name: 'Ensemblehp', tenant: ensemblehp, dc: wd5, site: ensemblehealthpartnerscareers}
+  - {name: 'Ensign InfoSecurity', tenant: ensigninfosecurity, dc: wd3, site: ensign_careers}
+  - {name: 'Entegris', tenant: entegris, dc: wd1, site: entegriscareers}
+  - {name: 'Entrust', tenant: entrust, dc: wd1, site: entrustcareers}
+  - {name: 'Envista', tenant: envista, dc: wd1, site: envistacareers}
+  - {name: 'Enzazaden', tenant: enzazaden, dc: wd103, site: enza-careers}
+  - {name: 'Eos', tenant: eosenergystorage, dc: wd1, site: eos}
+  - {name: 'Epicor', tenant: epicorsoftware, dc: wd5, site: epicorjobs}
+  - {name: 'Equifax', tenant: equifax, dc: wd5, site: UR_External}
+  - {name: 'Equifax', tenant: equifax, dc: wd5, site: external}
+  - {name: 'Equiniti', tenant: equiniti, dc: wd3, site: opportunities}
+  - {name: 'Equinix', tenant: equinix, dc: wd1, site: External}
+  - {name: 'Equinix', tenant: equinix, dc: wd1, site: external}
+  - {name: 'Equinor', tenant: equinor, dc: wd3, site: eqnr}
+  - {name: 'Ercot', tenant: ercot, dc: wd1, site: ercot_careers}
+  - {name: 'Erickson', tenant: erickson, dc: wd108, site: external}
+  - {name: 'Erm', tenant: erm, dc: wd3, site: ERM_Careers}
+  - {name: 'Erm', tenant: erm, dc: wd3, site: erm_careers}
+  - {name: 'ESAB', tenant: esab, dc: wd5, site: esabcareers}
+  - {name: 'Essentiahealth', tenant: essentiahealth, dc: wd1, site: Essentia_Health}
+  - {name: 'Essentia Health', tenant: essentiahealth, dc: wd1, site: essentia_health}
+  - {name: 'Essex', tenant: essex, dc: wd5, site: essexcareers}
+  - {name: 'Essity', tenant: essity, dc: wd3, site: job_opportunities}
+  - {name: 'Estrel', tenant: estrel, dc: wd103, site: estrel}
+  - {name: 'Etch', tenant: etch, dc: wd5, site: etch}
+  - {name: 'Etsy', tenant: etsy, dc: wd5, site: Depop_Careers}
+  - {name: 'Depop', tenant: etsy, dc: wd5, site: depop_careers}
+  - {name: 'EUROAPI', tenant: euroapi, dc: wd502, site: euroapi_careers}
+  - {name: 'Europcar', tenant: europcar, dc: wd103, site: europcarcareerpage}
+  - {name: 'EverCommerce', tenant: evercommerce, dc: wd1, site: evercommerce_careers}
+  - {name: 'Everestre', tenant: everestre, dc: wd5, site: careers}
+  - {name: 'Evergreenix', tenant: evergreenix, dc: wd1, site: external-careers2}
+  - {name: 'Evolent', tenant: evolent, dc: wd1, site: External}
+  - {name: 'Evolent', tenant: evolent, dc: wd1, site: external}
+  - {name: 'Evotec', tenant: evotecgroup, dc: wd3, site: evotec_career_site}
+  - {name: 'EVS', tenant: evs, dc: wd108, site: evsengineeringcareers}
+  - {name: 'AnewHealth', tenant: exactcare, dc: wd1, site: anewhealth_career_site}
+  - {name: 'EXFO', tenant: exfo, dc: wd10, site: EXFO_Careers}
+  - {name: 'Expedia', tenant: expedia, dc: wd108, site: private}
+  - {name: 'Expedia', tenant: expedia, dc: wd108, site: search}
+  - {name: 'ParaMed', tenant: extendicare, dc: wd10, site: paramed2023}
+  - {name: 'Ezcorp', tenant: ezcorp, dc: wd12, site: ezcorp}
+  - {name: 'Factset', tenant: factset, dc: wd108, site: FactSetCareers}
+  - {name: 'FactSet', tenant: factset, dc: wd108, site: factsetcareers}
+  - {name: 'Fanniemae', tenant: fanniemae, dc: wd1, site: FannieMaeCareers}
+  - {name: 'Fanniemae', tenant: fanniemae, dc: wd1, site: fanniemaecareers}
+  - {name: 'Fau', tenant: fau, dc: wd1, site: FAU}
+  - {name: 'FAU', tenant: fau, dc: wd1, site: fau}
+  - {name: 'Fca', tenant: fca, dc: wd3, site: FCA_Careers}
+  - {name: 'FCA', tenant: fca, dc: wd3, site: fca_careers}
+  - {name: 'Fedex', tenant: fedex, dc: wd1, site: fxe-lac_external_career_site}
+  - {name: 'FedEx Express', tenant: fedex, dc: wd1, site: fxe-meisa-external}
+  - {name: 'Fedex', tenant: fedex, dc: wd1, site: fxe_apac_external}
+  - {name: 'Fei', tenant: fei, dc: wd5, site: External}
+  - {name: 'fei', tenant: fei, dc: wd5, site: external}
+  - {name: 'Fenwick', tenant: fenwick, dc: wd1, site: Fenwick_External_Careers}
+  - {name: 'Fenwick', tenant: fenwick, dc: wd1, site: fenwick_external_careers}
+  - {name: 'Ferguson', tenant: ferguson, dc: wd1, site: Ferguson_Campus}
+  - {name: 'Ferguson', tenant: ferguson, dc: wd1, site: Ferguson_Experienced}
+  - {name: 'Fermilab', tenant: fermilab, dc: wd5, site: FermilabCareers}
+  - {name: 'Ferring', tenant: ferring, dc: wd3, site: ferring}
+  - {name: 'Ferrovial', tenant: ferrovial, dc: wd3, site: ferrovial_career_site}
+  - {name: 'Ffin', tenant: ffin, dc: wd1, site: First_Financial_Bank}
+  - {name: 'Ffive', tenant: ffive, dc: wd5, site: f5jobs}
+  - {name: 'FGCU', tenant: fgcu, dc: wd5, site: eaglejobs}
+  - {name: 'MAIN', tenant: fhcsd, dc: wd1, site: MAIN}
+  - {name: 'FHLB', tenant: fhlb, dc: wd1, site: FHLB_Careers}
+  - {name: 'Fhlbtopeka', tenant: fhlbtopeka, dc: wd1, site: FHLBT}
+  - {name: 'Fico', tenant: fico, dc: wd1, site: external}
+  - {name: 'Fielmann', tenant: fielmann, dc: wd3, site: external}
+  - {name: 'Fieracapital', tenant: fieracapital, dc: wd3, site: career}
+  - {name: 'Fifththird', tenant: fifththird, dc: wd5, site: 53careers}
+  - {name: 'Fil', tenant: fil, dc: wd3, site: 001}
+  - {name: 'Finning', tenant: finning, dc: wd3, site: External}
+  - {name: 'Us Finning', tenant: finning, dc: wd3, site: external}
+  - {name: 'Finra', tenant: finra, dc: wd1, site: FINRA}
+  - {name: 'Finra', tenant: finra, dc: wd1, site: finra}
+  - {name: 'First Advantage', tenant: firstadvantage, dc: wd5, site: FirstAdvantage}
+  - {name: 'Firstam', tenant: firstam, dc: wd1, site: fctcareers}
+  - {name: 'First Am', tenant: firstam, dc: wd1, site: firstamericancareers}
+  - {name: 'Firstnational', tenant: firstnational, dc: wd12, site: fnbocareers}
+  - {name: 'PREMIER', tenant: firstpremier, dc: wd503, site: premier_careers}
+  - {name: 'Firstquality', tenant: firstquality, dc: wd5, site: firstquality}
+  - {name: 'Firstquantum', tenant: firstquantum, dc: wd3, site: First_Quantum_Careers}
+  - {name: 'First Quantum', tenant: firstquantum, dc: wd3, site: first_quantum_careers}
+  - {name: 'FRB', tenant: firstrand, dc: wd3, site: FRB}
+  - {name: 'Firststudent', tenant: firststudent, dc: wd1, site: firststudent}
+  - {name: 'Fis', tenant: fis, dc: wd5, site: searchjobs}
+  - {name: 'Fiserv', tenant: fiserv, dc: wd5, site: EXT}
+  - {name: 'Theres a reason why Fiserv', tenant: fiserv, dc: wd5, site: ext}
+  - {name: 'Flcancer', tenant: flcancer, dc: wd1, site: FLCancer_Careers}
+  - {name: 'Headquartered in Irving, TX, FleetPride', tenant: fleetpride, dc: wd1, site: fleetpridecareer}
+  - {name: 'Flexerasoftware', tenant: flexerasoftware, dc: wd1, site: FlexeraSoftware}
+  - {name: 'Flexerasoftware', tenant: flexerasoftware, dc: wd1, site: flexerasoftware}
+  - {name: 'Flextronics', tenant: flextronics, dc: wd1, site: Careers}
+  - {name: 'Flextronics', tenant: flextronics, dc: wd1, site: careers}
+  - {name: 'Flir', tenant: flir, dc: wd1, site: flircareers}
+  - {name: 'Floridatech', tenant: floridatech, dc: wd5, site: FloridaTechCareers}
+  - {name: 'Floridatech', tenant: floridatech, dc: wd5, site: floridatechcareers}
+  - {name: 'Applied', tenant: flowserve, dc: wd1, site: applied}
+  - {name: 'FLS', tenant: flsmidth, dc: wd3, site: fls_global}
+  - {name: 'Fluence Energy', tenant: fluenceenergy, dc: wd12, site: fluenceenergy-jobs}
+  - {name: 'Flutterbe', tenant: flutterbe, dc: wd3, site: FlutterInt_External}
+  - {name: 'Flutterbe', tenant: flutterbe, dc: wd3, site: FlutterUKI_External}
+  - {name: 'Flvs', tenant: flvs, dc: wd1, site: flvs_jobs}
+  - {name: 'Duck', tenant: flywheel, dc: wd5, site: Job_Duck_Careers}
+  - {name: 'Fidelity', tenant: fmr, dc: wd1, site: fidelitycareers}
+  - {name: 'Fmr', tenant: fmr, dc: wd1, site: targeted}
+  - {name: 'FNZ', tenant: fnz, dc: wd3, site: fnz_careers}
+  - {name: 'Forcepoint', tenant: forcepoint, dc: wd1, site: external-careers}
+  - {name: 'Ford Foundation', tenant: fordfoundation, dc: wd1, site: fordfoundationcareerpage}
+  - {name: 'Foresters Financial™', tenant: foresters, dc: wd3, site: forestersfinancialcareers}
+  - {name: 'Forrester', tenant: forrester, dc: wd501, site: careers}
+  - {name: 'Fortrea', tenant: fortrea, dc: wd1, site: Fortrea}
+  - {name: 'Fortrea', tenant: fortrea, dc: wd1, site: fortrea}
+  - {name: 'Foundation for California Community Colleges', tenant: foundationccc, dc: wd1, site: fccc-careers}
+  - {name: 'Four Seasons', tenant: fourseasons, dc: wd3, site: search}
+  - {name: 'Fox', tenant: fox, dc: wd1, site: Domestic}
+  - {name: 'Fox', tenant: fox, dc: wd1, site: domestic}
+  - {name: 'Fox', tenant: fox, dc: wd1, site: foxtvst_east}
+  - {name: 'FOX', tenant: foxfactory, dc: wd1, site: fox}
+  - {name: 'FOX', tenant: foxrehab, dc: wd1, site: External}
+  - {name: 'Fractal', tenant: fractal, dc: wd1, site: careers}
+  - {name: 'Franciscanalliance', tenant: franciscanalliance, dc: wd5, site: fa_external_career_site}
+  - {name: 'Franklintempleton', tenant: franklintempleton, dc: wd5, site: Primary-External-1}
+  - {name: 'Franklintempleton', tenant: franklintempleton, dc: wd5, site: invitation-only}
+  - {name: 'Franklintempleton', tenant: franklintempleton, dc: wd5, site: primary-external-1}
+  - {name: 'Freddiemac', tenant: freddiemac, dc: wd5, site: External}
+  - {name: 'Freddiemac', tenant: freddiemac, dc: wd5, site: external}
+  - {name: 'Freseniusglobal', tenant: freseniusglobal, dc: wd3, site: FK_Careers}
+  - {name: 'Fresenius Kabi', tenant: freseniusglobal, dc: wd3, site: fk_careers}
+  - {name: 'Freseniusmedicalcare', tenant: freseniusmedicalcare, dc: wd3, site: fme}
+  - {name: 'Freshfields', tenant: freshfields, dc: wd3, site: fbd_101}
+  - {name: 'Freudenberg', tenant: freudenberg, dc: wd3, site: freudenberg-group}
+  - {name: 'Frostbank', tenant: frostbank, dc: wd5, site: External}
+  - {name: 'Frostbank', tenant: frostbank, dc: wd5, site: external}
+  - {name: 'Fugro', tenant: fugro, dc: wd3, site: careers}
+  - {name: 'Fullsail', tenant: fullsail, dc: wd1, site: external}
+  - {name: 'Fullsight', tenant: fullsight, dc: wd12, site: fullsight}
+  - {name: 'Fullsteam', tenant: fullsteam, dc: wd1, site: external}
+  - {name: 'FWD', tenant: fwd, dc: wd3, site: equest}
+  - {name: 'FWD', tenant: fwd, dc: wd3, site: fwdcareersite}
+  - {name: 'Gadventures', tenant: gadventures, dc: wd3, site: gadventures}
+  - {name: 'GAIG', tenant: gaig, dc: wd1, site: GAIG_External}
+  - {name: 'Gaig', tenant: gaig, dc: wd1, site: National_Interstate_External}
+  - {name: 'Galderma', tenant: galderma, dc: wd3, site: external}
+  - {name: 'Galileo Global Education', tenant: galileo, dc: wd3, site: galileo_career_site}
+  - {name: 'Istituto Marangoni', tenant: galileo, dc: wd3, site: istituto_marangoni_career_site}
+  - {name: 'Gamestop', tenant: gamestop, dc: wd5, site: careers}
+  - {name: 'Gapinc', tenant: gapinc, dc: wd1, site: gapconfidential}
+  - {name: 'Gartner', tenant: gartner, dc: wd5, site: EXT}
+  - {name: 'Gartner', tenant: gartner, dc: wd5, site: ext}
+  - {name: 'Gatesfoundation', tenant: gatesfoundation, dc: wd1, site: gates}
+  - {name: 'Gcu', tenant: gcu, dc: wd1, site: GCU}
+  - {name: 'GCUs Christian worldview', tenant: gcu, dc: wd1, site: gcuc}
+  - {name: 'Gdit', tenant: gdit, dc: wd5, site: external_career_site}
+  - {name: 'Find a job at GEA', tenant: gea, dc: wd3, site: geacareers}
+  - {name: 'GE Aerospace', tenant: geaerospace, dc: wd5, site: ge_externalsite}
+  - {name: 'GEHA', tenant: geha, dc: wd5, site: GEHACareers}
+  - {name: 'Gehc', tenant: gehc, dc: wd5, site: GEHC_ExternalSite}
+  - {name: 'Gehc', tenant: gehc, dc: wd5, site: gehc_externalsite}
+  - {name: 'Geico', tenant: geico, dc: wd1, site: External}
+  - {name: 'GEICO', tenant: geico, dc: wd1, site: external}
+  - {name: 'Geico', tenant: geico, dc: wd1, site: geas}
+  - {name: 'Geisinger', tenant: geisinger, dc: wd5, site: geisingerexternal}
+  - {name: 'Generac', tenant: generac, dc: wd5, site: external}
+  - {name: 'Generac', tenant: generac, dc: wd5, site: externalcareers}
+  - {name: 'Generalmotors', tenant: generalmotors, dc: wd5, site: Careers_GM}
+  - {name: 'Generalmotors', tenant: generalmotors, dc: wd5, site: careers_gm}
+  - {name: 'Genesishcs', tenant: genesishcs, dc: wd1, site: genesishcs}
+  - {name: 'Genesys', tenant: genesys, dc: wd1, site: Genesys}
+  - {name: 'Genesys', tenant: genesys, dc: wd1, site: genesys}
+  - {name: 'Genevausa', tenant: genevausa, dc: wd5, site: careersatgeneva}
+  - {name: 'Genpt', tenant: genpt, dc: wd1, site: Careers}
+  - {name: 'Genpt', tenant: genpt, dc: wd1, site: careers}
+  - {name: 'Gensler', tenant: gensler, dc: wd1, site: genslercareers}
+  - {name: 'Gentex', tenant: gentex, dc: wd5, site: Gentex}
+  - {name: 'Georgetown', tenant: georgetown, dc: wd1, site: Georgetown_Admin_Careers}
+  - {name: 'Georgetown', tenant: georgetown, dc: wd1, site: georgetown_admin_careers}
+  - {name: 'Gevernova', tenant: gevernova, dc: wd5, site: only_confidential_executive_recruiting}
+  - {name: 'Gevernova', tenant: gevernova, dc: wd5, site: vernova_externalsite}
+  - {name: 'Usjobs Gen Gfs', tenant: gfs, dc: wd5, site: usjobs-gen-gfs}
+  - {name: 'Ghc', tenant: ghc, dc: wd1, site: kaplan_international_careers}
+  - {name: 'Ghr', tenant: ghr, dc: wd1, site: Lateral-US}
+  - {name: 'Ghr', tenant: ghr, dc: wd1, site: lateral-apac}
+  - {name: 'Lateral Emea', tenant: ghr, dc: wd1, site: lateral-emea}
+  - {name: 'Ghr', tenant: ghr, dc: wd1, site: lateral-us}
+  - {name: 'Ghr', tenant: ghr, dc: wd1, site: us-emplsv}
+  - {name: 'Gi', tenant: gi, dc: wd1, site: Global_Infrastructure}
+  - {name: 'Global Infrastructure', tenant: gi, dc: wd1, site: global_infrastructure}
+  - {name: 'Goodwill of Central Illinois', tenant: gici, dc: wd5, site: illinoiscareers}
+  - {name: 'Gilead Sciences, Inc', tenant: gilead, dc: wd1, site: gileadcareers}
+  - {name: 'CANPACK Group', tenant: giorgiglobal, dc: wd3, site: canpack}
+  - {name: 'GIRO', tenant: giro, dc: wd10, site: GIRO}
+  - {name: 'Glencorecorp', tenant: glencorecorp, dc: wd3, site: External}
+  - {name: 'Global Blue', tenant: globalblue, dc: wd3, site: external}
+  - {name: 'Globalfoundries', tenant: globalfoundries, dc: wd1, site: External}
+  - {name: 'Globalfoundries', tenant: globalfoundries, dc: wd1, site: external}
+  - {name: 'Globalhr', tenant: globalhr, dc: wd5, site: Private_Posting_No_TMP}
+  - {name: 'Globalhr', tenant: globalhr, dc: wd5, site: REC_RTX_Ext_Gateway}
+  - {name: 'RTX', tenant: globalhr, dc: wd5, site: rec_rtx_ext_gateway}
+  - {name: 'Globe Telecom, Inc. (Globe)', tenant: globe, dc: wd3, site: glb_careers}
+  - {name: 'Globe', tenant: globe, dc: wd3, site: mynt}
+  - {name: 'Globusmedical', tenant: globusmedical, dc: wd5, site: GMED_Careers}
+  - {name: 'Globus Medical', tenant: globusmedical, dc: wd5, site: gmed_careers}
+  - {name: 'Beltone', tenant: gn, dc: wd3, site: beltonecareers}
+  - {name: 'Beltone - Independently Owned', tenant: gn, dc: wd3, site: beltoneindependentlyowned}
+  - {name: 'GN', tenant: gn, dc: wd3, site: gn-careers}
+  - {name: 'Jabra', tenant: gn, dc: wd3, site: jabracareers}
+  - {name: 'Gnw', tenant: gnw, dc: wd1, site: GNW}
+  - {name: 'Gnw', tenant: gnw, dc: wd1, site: gnw}
+  - {name: 'Gobeacon', tenant: gobeacon, dc: wd1, site: beaconmobilitycareers}
+  - {name: 'Goddardenterprisesltd', tenant: goddardenterprisesltd, dc: wd5, site: goddardenteterprisesltd}
+  - {name: 'Gogo', tenant: gogo, dc: wd503, site: careers}
+  - {name: 'Hrt', tenant: gohrt, dc: wd12, site: hrt}

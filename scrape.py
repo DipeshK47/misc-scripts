@@ -19,7 +19,9 @@ from datetime import datetime, timezone
 
 import yaml
 
-from sources import github_repos, greenhouse, lever, ashby, markdown_repos, workday, smartrecruiters, workable, themuse
+from sources import (github_repos, greenhouse, lever, ashby, markdown_repos, workday,
+                     smartrecruiters, workable, themuse, recruitee, eightfold, direct,
+                     remoteok, weworkremotely)
 from sources.base import now_ts, now_iso, is_early_career, is_senior
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -71,10 +73,18 @@ def collect(repos_cfg, companies_cfg, md_cfg, wd_cfg, mode):
         tasks.append((f"smartrecruiters:{t}", lambda x=t: smartrecruiters.fetch(x, mode)))
     for a in companies_cfg.get("workable", []) or []:
         tasks.append((f"workable:{a}", lambda x=a: workable.fetch(x, mode)))
+    for rr in companies_cfg.get("recruitee", []) or []:
+        tasks.append((f"recruitee:{rr}", lambda x=rr: recruitee.fetch(x, mode)))
+    for ef in companies_cfg.get("eightfold", []) or []:
+        tasks.append((f"eightfold:{ef['name']}", lambda x=ef: eightfold.fetch(x, mode)))
+    for dn in companies_cfg.get("direct", []) or []:
+        tasks.append((f"direct:{dn}", lambda x=dn: direct.fetch(x, mode)))
     tasks.append(("muse:jobs", lambda: themuse.fetch(None, mode)))
+    tasks.append(("remoteok:jobs", lambda: remoteok.fetch(None, mode)))
+    tasks.append(("weworkremotely:rss", lambda: weworkremotely.fetch(None, mode)))
 
     jobs, health = [], []
-    with ThreadPoolExecutor(max_workers=32) as ex:
+    with ThreadPoolExecutor(max_workers=int(os.environ.get("SCRAPE_WORKERS", "64"))) as ex:
         futs = {ex.submit(fn): label for label, fn in tasks}
         for fut in as_completed(futs):
             label = futs[fut]

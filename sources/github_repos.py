@@ -7,15 +7,32 @@ Confirmed schema (SimplifyJobs / vanshb03 family):
 """
 from __future__ import annotations
 
-from .base import get_json, make_job
+from .base import get_json, make_job, iso_to_ts
 
 
 def fetch(repo_cfg) -> list[dict]:
-    """repo_cfg: {name, url, default_role}. Returns normalized jobs."""
+    """repo_cfg: {name, url, default_role, schema?}. Returns normalized jobs."""
     name = repo_cfg["name"]
     url = repo_cfg["url"]
     default_role = repo_cfg.get("default_role")
     data = get_json(url, timeout=40)
+
+    # zshah101-style feed: {"jobs":[{title,company,url,location,category,posted_at,...}]}
+    if repo_cfg.get("schema") == "zshah":
+        jobs = []
+        for r in (data or {}).get("jobs", []) if isinstance(data, dict) else []:
+            if not r.get("title") or not r.get("url"):
+                continue
+            jobs.append(make_job(
+                title=r["title"], company=r.get("company") or "",
+                url=r["url"],
+                locations=[r["location"]] if r.get("location") else [],
+                source=f"github:{name}", source_type="github_repo",
+                date_posted_ts=iso_to_ts(r.get("posted_at")) or iso_to_ts(r.get("first_seen_at")),
+                role_default=default_role, category_hint=r.get("category") or "",
+            ))
+        return jobs
+
     if not isinstance(data, list):
         return []
 
