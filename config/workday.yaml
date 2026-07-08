@@ -961,3 +961,6 @@ workday:
   - {name: 'Goddardenterprisesltd', tenant: goddardenterprisesltd, dc: wd5, site: goddardenteterprisesltd}
   - {name: 'Gogo', tenant: gogo, dc: wd503, site: careers}
   - {name: 'Hrt', tenant: gohrt, dc: wd12, site: hrt}
+  # ---- big-tech giants (research-verified 2026-07-08) ----
+  - {name: 'Intel', tenant: intel, dc: wd1, site: External}
+  - {name: 'Micron', tenant: micron, dc: wd1, site: External}
