@@ -49,7 +49,18 @@ jobs:
           git add docs/jobs.json docs/meta.json state/seen.json
           if git diff --staged --quiet; then
             echo "No changes."
-          else
-            git commit -m "data: refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
+            exit 0
           fi
+          git commit -m "data: refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Resilient push: a manual code push (or another run) can advance origin
+          # mid-run, making our push non-fast-forward. Rebase our data-only commit
+          # onto the latest and retry. The bot only touches data files while manual
+          # pushes touch code, so the rebase is conflict-free.
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            echo "push rejected (attempt $i) — rebasing onto latest origin/main"
+            git pull --rebase --autostash origin main || git rebase --abort || true
+            sleep 3
+          done
+          echo "::error::could not push refreshed data after 5 attempts"
+          exit 1
