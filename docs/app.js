@@ -169,7 +169,7 @@ function passNonCat(j) {
   }
   const q = $("q").value.trim().toLowerCase();
   if (q) {
-    const hay = (j.title + " " + j.company + " " + j.location + " " + (j.categories || []).join(" ")).toLowerCase();
+    const hay = [j.title, j.company, j.location, (j.categories || []).join(" ")].filter(Boolean).join(" ").toLowerCase();
     if (!q.split(/\s+/).every((w) => hay.includes(w))) return false;
   }
   return true;
@@ -179,7 +179,7 @@ const srcPass = (j) => !activeSrcs.size || srcPrefixes(j).some((p) => activeSrcs
 
 function sortJobs(list) {
   const s = $("sort").value;
-  if (s === "company") return list.sort((a, b) => a.company.localeCompare(b.company));
+  if (s === "company") return list.sort((a, b) => (a.company || "").localeCompare(b.company || ""));
   if (s === "found") return list.sort((a, b) => (b.first_seen_ts || 0) - (a.first_seen_ts || 0));
   return list.sort((a, b) => (b.date_posted_ts || b.first_seen_ts || 0) - (a.date_posted_ts || a.first_seen_ts || 0));
 }

@@ -22,6 +22,11 @@ ats_level: non_senior
 # Prune the seen-state file: forget jobs not seen for this many days.
 seen_retention_days: 120
 
+# Catastrophic-drop guard: if a run keeps fewer than this fraction of the
+# previous run's job count, abort WITHOUT writing (a source outage, not real
+# churn) so the last-good board stays live and CI fails loudly.
+min_retain_fraction: 0.6
+
 # New-job notifications (Discord/Slack webhook set via env in CI).
 notify:
   enabled: true

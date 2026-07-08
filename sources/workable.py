@@ -29,6 +29,7 @@ def fetch(account, mode="non_senior") -> list[dict]:
             company=company,
             url=j.get("url") or j.get("application_url") or "",
             locations=locs,
+            country=j.get("country"),  # else "Île-de-France" reads as US (matches "de")
             source=f"workable:{account}",
             source_type="workable",
             date_posted_ts=iso_to_ts(j.get("published_on")) or iso_to_ts(j.get("created_at")),

@@ -28,10 +28,21 @@ markdown_repos:
     default_role: internship
     hint: "data analyst data analytics"
 
-  - name: speedyapply/2027-AI-College-Jobs
+  # speedyapply AI repo splits like the SWE repo: README.md = US internships,
+  # NEW_GRAD_USA.md = US new-grad. (Bug fixed 2026-07-08: README.md was mislabeled
+  # new_grad and NEW_GRAD_USA.md — the AI new-grad table — was never fetched.)
+  - name: speedyapply/2027-AI-College-Jobs (intern)
     url: https://raw.githubusercontent.com/speedyapply/2027-AI-College-Jobs/main/README.md
     header: ["Company", "Position"]
-    idx: {company: 0, role: 1, location: 2, apply: 4, date: 5}
+    idx: {company: 0, role: 1, location: 2, apply: -2, date: -1}  # neg = from end: sections vary 5/6 cols (Salary optional)
+    date_kind: age
+    default_role: internship
+    hint: "machine learning ai"
+
+  - name: speedyapply/2027-AI-College-Jobs (new grad)
+    url: https://raw.githubusercontent.com/speedyapply/2027-AI-College-Jobs/main/NEW_GRAD_USA.md
+    header: ["Company", "Position"]
+    idx: {company: 0, role: 1, location: 2, apply: -2, date: -1}  # neg = from end: sections vary 5/6 cols (Salary optional)
     date_kind: age
     default_role: new_grad
     hint: "machine learning ai"
@@ -39,7 +50,7 @@ markdown_repos:
   - name: speedyapply/2027-SWE-College-Jobs (new grad)
     url: https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/NEW_GRAD_USA.md
     header: ["Company", "Position"]
-    idx: {company: 0, role: 1, location: 2, apply: 4, date: 5}
+    idx: {company: 0, role: 1, location: 2, apply: -2, date: -1}  # neg = from end: sections vary 5/6 cols (Salary optional)
     date_kind: age
     default_role: new_grad
     hint: "software engineer"
@@ -47,7 +58,7 @@ markdown_repos:
   - name: speedyapply/2027-SWE-College-Jobs (intern)
     url: https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/README.md
     header: ["Company", "Position"]
-    idx: {company: 0, role: 1, location: 2, apply: 4, date: 5}
+    idx: {company: 0, role: 1, location: 2, apply: -2, date: -1}  # neg = from end: sections vary 5/6 cols (Salary optional)
     date_kind: age
     default_role: internship
     hint: "software engineer"

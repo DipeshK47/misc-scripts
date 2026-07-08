@@ -27,7 +27,7 @@ def fetch(token, mode="non_senior") -> list[dict]:
         posted = iso_to_ts(j.get("first_published"))
         jobs.append(make_job(
             title=title,
-            company=token,
+            company=j.get("company_name") or token,  # real name, not the lowercase slug
             url=j.get("absolute_url") or "",
             locations=[loc] if loc else [],
             source=f"greenhouse:{token}",

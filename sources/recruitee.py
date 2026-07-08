@@ -29,6 +29,7 @@ def fetch(slug, mode="non_senior") -> list[dict]:
             company=(data.get("company") or {}).get("name") if isinstance(data.get("company"), dict) else slug,
             url=o.get("careers_url") or "",
             locations=locs,
+            country=o.get("country_code") or o.get("country"),  # else "Deutschland" etc. reads as US
             source=f"recruitee:{slug}",
             source_type="recruitee",
             date_posted_ts=iso_to_ts(o.get("published_at")) or iso_to_ts(o.get("created_at")),

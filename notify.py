@@ -51,7 +51,12 @@ def line(j):
     sp = SPONS.get(j.get("sponsorship", ""), "")
     loc = j.get("location") or ("Remote" if j.get("remote") else "")
     bits = [b for b in [loc, cats, sp, when(j)] if b]
-    return f"**[{j['title']}]({j['url']})** — {j['company']}\n{' · '.join(bits)}"
+    # .get() not subscript: one new job missing company/title/url must not
+    # KeyError and abort alerts for every other job in the batch.
+    title = j.get("title") or "(untitled)"
+    company = j.get("company") or ""
+    url = j.get("url") or "#"
+    return f"**[{title}]({url})** — {company}\n{' · '.join(bits)}"
 
 
 def send_discord(url, jobs):

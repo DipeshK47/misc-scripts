@@ -133,14 +133,23 @@ def fetch(cfg):
 
     now = now_ts()
     jobs, last_company = [], ""
+    # These READMEs are multi-section (### FAANG, ### Quant, …), each an
+    # independent table with the SAME schema separated by headings/blanks/HTML
+    # comments. Scan to EOF, skipping non-table lines, separators, and the
+    # repeated per-section header rows — don't stop at the first blank line.
+    # ponytail: reads every same-schema table after the first header; a repo
+    # with a trailing UNRELATED >=ncols table would over-collect — none do today.
     for line in lines[start + 1:]:
         cells = _row_cells(line)
         if cells is None:
-            break                       # table ended
+            continue                    # section heading / blank / HTML comment
         if _is_sep(cells):
             continue
         if len(cells) < ncols:
             continue
+        low = [_text(c).lower() for c in cells]
+        if all(any(sig in c for c in low) for sig in header_sig):
+            continue                    # repeated per-section header row
 
         company = _text(cells[idx["company"]])
         if cfg.get("carry_forward") and (company in ("↳", "⤷", "") or company.startswith("↳")):

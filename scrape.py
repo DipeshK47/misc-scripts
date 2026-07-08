@@ -213,6 +213,20 @@ def main():
     # sort: newest posted first; undated fall back to first-seen
     kept.sort(key=lambda j: (j.get("date_posted_ts") or j["first_seen_ts"]), reverse=True)
 
+    # Catastrophic-drop guard: collect() isolates per-source failures, so a
+    # transient outage (e.g. Greenhouse timing out) would otherwise write a
+    # jobs.json missing thousands of jobs and the CI would commit it. If this
+    # run kept far fewer jobs than the last healthy run, abort WITHOUT writing
+    # so the last-good jobs.json stays live and CI fails loudly.
+    prev_total = load_json(os.path.join(DOCS, "meta.json"), {}).get("total", 0)
+    floor = filt.get("min_retain_fraction", 0.6)
+    if prev_total > 200 and len(kept) < prev_total * floor:
+        print(f"::error:: refusing to write: kept {len(kept)} << previous {prev_total} "
+              f"(< {floor:.0%}); likely a source outage. Keeping last-good data.")
+        print("   source health: " + ", ".join(
+            f"{h['source']}={'ok' if h['ok'] else 'FAIL'}" for h in health if not h["ok"]) or "   (all sources ok?)")
+        sys.exit(1)
+
     # stats
     by_cat, by_src, by_role = {}, {}, {}
     for j in kept:

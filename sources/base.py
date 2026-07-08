@@ -9,7 +9,7 @@ import hashlib
 import re
 import time
 from datetime import datetime, timezone
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 import requests
 
@@ -101,6 +101,8 @@ def iso_to_ts(s) -> int | None:
         s = s.strip()
         # Python's fromisoformat handles offsets like +00:00; normalize Z
         s = s.replace("Z", "+00:00")
+        # py3.9 fromisoformat rejects colon-less offsets ("+0000"); insert the colon
+        s = re.sub(r"([+-]\d{2})(\d{2})$", r"\1:\2", s)
         dt = datetime.fromisoformat(s)
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
@@ -118,7 +120,7 @@ CATEGORY_KEYWORDS = {
         "ml engineer", "ml eng", "mlops", "ml ops", "nlp", "natural language",
         "computer vision", " cv ", "llm", "large language", "generative", "gen ai",
         "genai", "ml infra", "ml platform", "perception", "speech", "recommendation",
-        "deep neural", "reinforcement learning", "ml ", " ml/", "/ml",
+        "deep neural", "reinforcement learning", " ml/", "/ml",
     ],
     "research": [
         "research", "applied scientist", "research scientist", "research engineer",
@@ -299,12 +301,16 @@ def location_info(locations, country: str | None = None):
     has_usname = "united states" in low or " usa " in low or re.search(r"\bu\.?s\.?\b", low)
     foreign = any(c in low for c in _NON_US)
 
-    if foreign and not (has_state or has_usname):
-        is_us = False
-    elif has_state or has_usname:
+    # Precedence: an explicit US name wins; then an explicit foreign country
+    # wins over a bare 2-letter "state" match — several state codes ("in", "or",
+    # "hi", "me", "ok", "de") are common English words that spuriously match
+    # phrases like "Remote in Canada", which must stay non-US.
+    if has_usname:
         is_us = True
-    elif is_remote:
-        is_us = True  # assume US-remote unless a foreign locale was named
+    elif foreign:
+        is_us = False
+    elif has_state or is_remote:
+        is_us = True  # US state, or assume US-remote when no foreign locale named
     else:
         is_us = True  # blank/unknown -> keep (curated repos are US-centric)
     return text, is_us, is_remote
@@ -313,14 +319,25 @@ def location_info(locations, country: str | None = None):
 # --------------------------------------------------------------------------- #
 # Canonical URL + stable id
 # --------------------------------------------------------------------------- #
+# query params that carry tracking noise (dropped) vs job identity (kept, e.g.
+# gh_jid, pid, jobId). Stripping the WHOLE query collapsed every job on a
+# custom-domain Greenhouse board (…/jobs/search?gh_jid=N) to one stable_id.
+_TRACKING_PARAMS = {
+    "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term",
+    "gh_src", "src", "source", "ref", "referrer", "trk", "recruiter",
+}
+
+
 def canonical_url(url: str) -> str:
     if not url:
         return ""
     try:
         p = urlsplit(url.strip())
-        # drop query + fragment, normalize trailing slash, lowercase host
         path = p.path.rstrip("/")
-        return urlunsplit((p.scheme.lower(), p.netloc.lower(), path, "", ""))
+        # keep identity-bearing query params, drop tracking noise; sort for stability
+        q = sorted((k, v) for k, v in parse_qsl(p.query)
+                   if k.lower() not in _TRACKING_PARAMS)
+        return urlunsplit((p.scheme.lower(), p.netloc.lower(), path, urlencode(q), ""))
     except Exception:  # noqa: BLE001
         return url.strip()
 

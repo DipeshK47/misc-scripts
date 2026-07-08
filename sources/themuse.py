@@ -26,8 +26,8 @@ ROLE_OF = {"Internship": "internship", "Entry Level": "new_grad"}
 def fetch(_token=None, mode="non_senior") -> list[dict]:
     jobs = []
     for category, level in QUERIES:
-        page, page_count = 1, 1
-        while page <= min(page_count, MAX_PAGES):
+        page, page_count = 0, 1   # Muse pages are 0-indexed; page 0 is the top results
+        while page < min(page_count, MAX_PAGES):
             data = get_json(API, params={"category": category, "level": level, "page": page},
                             timeout=30)
             page_count = (data or {}).get("page_count") or 0
