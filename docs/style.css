@@ -123,6 +123,30 @@ button { font: inherit; color: inherit; }
 .seg-btn[aria-pressed="true"] { color: var(--color-ink); font-weight: 600; }
 .seg-btn:active { opacity: 0.7; }
 
+/* filters collapse toggle */
+.filters-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 34px; padding: 0 var(--space-3); white-space: nowrap;
+  background: var(--color-fill); border: none; border-radius: var(--radius-md);
+  font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); cursor: pointer;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+}
+.filters-btn:hover { background: var(--color-fill-2); color: var(--color-ink); }
+.filters-btn:active { transform: scale(0.97); }
+.filters-btn .chev { width: 13px; height: 13px; transition: transform var(--dur-short) var(--ease-out); }
+.toolbar.tb-collapsed .filters-btn .chev { transform: rotate(-90deg); }
+#tb-extra {
+  display: grid; grid-template-rows: 1fr;
+  transition: grid-template-rows var(--dur-long) var(--ease-in-out);
+}
+#tb-extra > .tb-extra-in {
+  overflow: hidden; min-height: 0;
+  display: flex; flex-direction: column; gap: var(--space-3);
+}
+.toolbar.tb-collapsed #tb-extra { grid-template-rows: 0fr; }
+.toolbar.tb-collapsed .tb-inner { gap: 0; }
+.toolbar.pre-anim #tb-extra { transition: none; }
+
 .sel { position: relative; display: inline-flex; }
 .sel::after {
   content: ""; position: absolute; right: 12px; top: 50%;

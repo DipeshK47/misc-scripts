@@ -49,7 +49,12 @@
         <button class="seg-btn" data-role="internship" aria-pressed="false">Internships</button>
         <button class="seg-btn" data-role="new_grad" aria-pressed="false">New Grad</button>
       </div>
+      <button id="toggle-filters" class="filters-btn" aria-expanded="true" aria-controls="tb-extra" title="Show / hide filters">
+        <span class="ft-label">Filters</span>
+        <svg class="chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
+    <div id="tb-extra"><div class="tb-extra-in">
     <div class="tb-row">
       <span class="sel"><select id="loc" title="Filter by location">
         <option value="">All locations</option>
@@ -99,6 +104,7 @@
       <span class="spacer"></span>
       <span class="lbl" id="applied-count"></span>
     </div>
+    </div></div>
   </div>
 </div>
 

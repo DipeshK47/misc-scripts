@@ -47,6 +47,7 @@ let activeCats = new Set();
 let activeSrcs = new Set();     // source prefixes ("greenhouse", "github", …)
 let roleSel = "";               // "", "internship", "new_grad" (segmented control)
 let booting = true;             // first render gets the staggered reveal
+let filtersCollapsed = false;   // hide the secondary filter rows to reclaim space
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => (s || "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -82,6 +83,7 @@ function loadPrefs() {
   $("t-show-dismissed").checked = !!p.tshowDismissed;
   activeCats = new Set(p.cats || []);
   activeSrcs = new Set(p.srcs || []);
+  filtersCollapsed = !!p.collapsed;
 }
 function savePrefs() {
   localStorage.setItem(LS.prefs, JSON.stringify({
@@ -89,7 +91,7 @@ function savePrefs() {
     role: roleSel, level: $("level").value, spons: $("spons").value,
     tnew: $("t-new").checked, tremote: $("t-remote").checked,
     thideApplied: $("t-hide-applied").checked, tshowDismissed: $("t-show-dismissed").checked,
-    cats: [...activeCats], srcs: [...activeSrcs],
+    cats: [...activeCats], srcs: [...activeSrcs], collapsed: filtersCollapsed,
   }));
 }
 
@@ -386,6 +388,20 @@ async function boot() {
   buildChipGroup("cat-chips", CATEGORIES, activeCats);
   buildChipGroup("src-chips", SOURCES, activeSrcs);
   buildSeg();
+  // filters collapse toggle (persists in prefs)
+  const toolbar = document.querySelector(".toolbar");
+  const applyCollapsed = () => {
+    toolbar.classList.toggle("tb-collapsed", filtersCollapsed);
+    $("toggle-filters").setAttribute("aria-expanded", String(!filtersCollapsed));
+  };
+  toolbar.classList.add("pre-anim");            // suppress transition on first paint
+  applyCollapsed();
+  requestAnimationFrame(() => requestAnimationFrame(() => toolbar.classList.remove("pre-anim")));
+  $("toggle-filters").addEventListener("click", () => {
+    filtersCollapsed = !filtersCollapsed;
+    applyCollapsed();
+    savePrefs();
+  });
   setupSources();
   render();
   booting = false;          // later renders skip the entrance stagger
