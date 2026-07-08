@@ -1,9 +1,8 @@
-/* Hallmark · scope: app dashboard (macrostructure N/A) · genre: modern-minimal
- * theme: Quiet / Apple-system · anchor hue 250 · accent blue ≤3% · pre-emit critique: P5 H5 E4 S4 R5 V4
- * differs from prior build on: container voice (inset grouped list vs floating cards),
- * NEW = unread dot (vs filled pill), tinted actions (vs filled), segmented role control,
- * load orchestration + stat counters (prior had none), tinted neutrals (vs zero-chroma).
- * Element IDs + JS-emitted class names preserved.
+/* Hallmark · scope: app dashboard (macrostructure N/A) · studied: yes
+ * theme: studied-DNA (source: url https://career-ops.org) · pre-emit critique: P5 H4 E5 S4 R5 V4
+ * DNA applied: warm-orange accent (#dd7627 → oklch 58% .15 52), Instrument Serif italic
+ * display + Inter body, neutral warm-tinted off-white/near-black surfaces.
+ * All tokens via var(); Element IDs + JS-emitted class names preserved.
  */
 
 * { box-sizing: border-box; }
@@ -37,16 +36,19 @@ button { font: inherit; color: inherit; }
 .head-inner { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-4) var(--space-5); }
 .brand h1 {
   margin: 0;
-  font-size: clamp(1.75rem, 4vw, 2.125rem);
-  font-weight: 700; letter-spacing: var(--track-tight); line-height: 1.05;
+  font-family: var(--font-display);
+  font-style: italic; font-weight: 400;
+  font-size: clamp(2.1rem, 4.6vw, 2.7rem);
+  letter-spacing: 0; line-height: 1;
 }
 .brand .dot { color: var(--color-accent); }
 .brand .tag { display: block; margin-top: 4px; color: var(--color-muted); font-size: var(--text-sm); }
 .stats { display: flex; gap: var(--space-5); margin-left: auto; }
 .stat { text-align: right; line-height: 1.15; }
 .stat b {
-  display: block; font-size: var(--text-lg); font-weight: 600;
-  letter-spacing: var(--track-snug); font-variant-numeric: tabular-nums;
+  display: block; font-family: var(--font-display); font-weight: 400;
+  font-size: 1.6rem; line-height: 1.1;
+  letter-spacing: 0; font-variant-numeric: tabular-nums;
 }
 .stat span { color: var(--color-faint); font-size: var(--text-xs); }
 .stat.new b { color: var(--color-accent); }
@@ -275,7 +277,10 @@ main { padding-top: var(--space-5); padding-bottom: var(--space-6); }
 .btn.ghost { background: none; color: var(--color-faint); padding: 0 var(--space-2); }
 .btn.ghost:hover { background: var(--color-fill); color: var(--color-ink); }
 
-.empty { padding: var(--space-7) var(--space-4); text-align: center; color: var(--color-muted); }
+.empty {
+  padding: var(--space-7) var(--space-4); text-align: center; color: var(--color-muted);
+  font-family: var(--font-display); font-style: italic; font-size: var(--text-lg);
+}
 
 /* ---------- footer ---------- */
 footer {

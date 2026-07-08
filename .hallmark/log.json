@@ -1,3 +1,16 @@
 [
-  { "date": "2026-07-07", "macrostructure": "Workbench (dashboard, N/A)", "theme": "Quiet", "enrichment": "none", "brief": "JobRadar dashboard — Apple-minimal redesign + role segment + source chips" }
+ {
+  "date": "2026-07-08",
+  "macrostructure": "Workbench (dashboard, N/A)",
+  "theme": "studied-DNA",
+  "brief": "career-ops.org DNA \u2014 Instrument Serif italic display + Inter body, warm-orange #dd7627 accent, neutral warm surfaces",
+  "studied": "url https://career-ops.org"
+ },
+ {
+  "date": "2026-07-07",
+  "macrostructure": "Workbench (dashboard, N/A)",
+  "theme": "Quiet",
+  "enrichment": "none",
+  "brief": "JobRadar dashboard \u2014 Apple-minimal redesign + role segment + source chips"
+ }
 ]
